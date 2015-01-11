@@ -1,0 +1,19 @@
+bmeMonitor
+=========================================================================
+1.requirements:
+1.0 java >= 1.7
+1.1 tornado >= 3.2-2 [jumbo install python-tornado]
+1.2 python-mysql >= 1.2.3-1 [jumbo install python-mysql]
+1.3 APScheduler == 2.0.3(卆正futures、tzlocal 、pytz 、six)
+1.4 python-paramiko >= 1.11.0-1 [jumbo install python-paramiko]
+1.5 python-gearman >= 2.0.2
+1.6 gear >= 0.5.5(卆正)
+
+2.database operation:
+2.1 ./bin/mysql -h10.215.73.52 -usemrd -psemtest -P8111
+2.2 db_bmemonitor
+
+3.distributed task server
+3.1 cd gearserver/
+3.2 ./start.sh 8887
+

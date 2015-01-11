@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/myspace/!svn/ver/212685/lbs/bmeqa/bmeMonitor/web/dispatch/gearclient
+END
+gear-0.5.5.tar.gz
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/myspace/!svn/ver/212655/lbs/bmeqa/bmeMonitor/web/dispatch/gearclient/gear-0.5.5.tar.gz
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/myspace/!svn/ver/212671/lbs/bmeqa/bmeMonitor/web/dispatch/gearclient/__init__.py
+END
+python-gearman-2.0.2.tar.gz
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/myspace/!svn/ver/212655/lbs/bmeqa/bmeMonitor/web/dispatch/gearclient/python-gearman-2.0.2.tar.gz
+END
+pbr-0.10.0.tar.gz
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/myspace/!svn/ver/212655/lbs/bmeqa/bmeMonitor/web/dispatch/gearclient/pbr-0.10.0.tar.gz
+END
+gearClient.py
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/myspace/!svn/ver/212685/lbs/bmeqa/bmeMonitor/web/dispatch/gearclient/gearClient.py
+END

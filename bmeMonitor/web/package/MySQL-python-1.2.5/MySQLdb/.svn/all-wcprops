@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb/__init__.py
+END
+cursors.py
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb/cursors.py
+END
+release.py
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb/release.py
+END
+times.py
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb/times.py
+END
+connections.py
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb/connections.py
+END
+converters.py
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb/converters.py
+END

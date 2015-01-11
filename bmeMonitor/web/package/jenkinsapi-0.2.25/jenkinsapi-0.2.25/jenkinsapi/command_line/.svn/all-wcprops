@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/jenkinsapi-0.2.25/jenkinsapi-0.2.25/jenkinsapi/command_line
+END
+jenkins_invoke.py
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/jenkinsapi-0.2.25/jenkinsapi-0.2.25/jenkinsapi/command_line/jenkins_invoke.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/jenkinsapi-0.2.25/jenkinsapi-0.2.25/jenkinsapi/command_line/__init__.py
+END
+jenkinsapi_version.py
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/jenkinsapi-0.2.25/jenkinsapi-0.2.25/jenkinsapi/command_line/jenkinsapi_version.py
+END

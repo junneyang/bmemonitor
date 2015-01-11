@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/tests
+END
+capabilities.py
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/tests/capabilities.py
+END
+configdb.py
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/tests/configdb.py
+END
+test_MySQLdb_dbapi20.py
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/tests/test_MySQLdb_dbapi20.py
+END
+dbapi20.py
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/tests/dbapi20.py
+END
+test_MySQLdb_capabilities.py
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/tests/test_MySQLdb_capabilities.py
+END
+test_MySQLdb_nonstandard.py
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/tests/test_MySQLdb_nonstandard.py
+END

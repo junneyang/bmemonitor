@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/jenkinsapi-0.2.25/jenkinsapi/utils
+END
+krb_requester.py
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/jenkinsapi-0.2.25/jenkinsapi/utils/krb_requester.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/jenkinsapi-0.2.25/jenkinsapi/utils/__init__.py
+END
+requester.py
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/jenkinsapi-0.2.25/jenkinsapi/utils/requester.py
+END

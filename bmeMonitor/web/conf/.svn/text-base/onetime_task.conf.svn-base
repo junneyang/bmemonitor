@@ -1,0 +1,24 @@
+[
+	{
+		"monitorObj_id":3,
+		"monitorMetrics_id":1,
+		"monitorMetrics_name":"账户余额",
+		"_start_type":"任务类型，0：定时启动，此时需要配置定时启动时间、间隔时间；1：间隔启动，此时需要配置间隔周期；2：立即启动，一次性任务",
+		"start_type":2,
+		"_taskrunner":"填写scripts目录下，监控脚本执行方法",
+		"taskrunner":"python 1-2-3-1.accountRest.py",
+		"_status":"是否有效，1：有效；0：下架。有效则启动。",
+		"status":1
+	},
+	{
+		"monitorObj_id":3,
+		"monitorMetrics_id":1,
+		"monitorMetrics_name":"账户余额",
+		"_start_type":"任务类型，0：定时启动，此时需要配置定时启动时间、间隔时间；1：间隔启动，此时需要配置间隔周期；2：立即启动，一次性任务",
+		"start_type":2,
+		"_taskrunner":"填写scripts目录下，监控脚本执行方法",
+		"taskrunner":"python 1-2-3-1.accountRest.py",
+		"_status":"是否有效，1：有效；0：下架。有效则启动。",
+		"status":0
+	}
+]

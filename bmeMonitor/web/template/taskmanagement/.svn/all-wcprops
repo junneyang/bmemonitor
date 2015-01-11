@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/template/taskmanagement
+END
+nextstop_pbclient.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/template/taskmanagement/nextstop_pbclient.html
+END
+taskdetail.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/template/taskmanagement/taskdetail.html
+END
+addtask.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/template/taskmanagement/addtask.html
+END
+nextstop_pbdownload.html
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/template/taskmanagement/nextstop_pbdownload.html
+END
+taskmanagement.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/template/taskmanagement/taskmanagement.html
+END
+nextstop_pbbenchmark.html
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/template/taskmanagement/nextstop_pbbenchmark.html
+END

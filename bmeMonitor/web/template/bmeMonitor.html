@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head name='top'>
+	<meta charset="UTF-8"/>
+	<title>首页-BME监控系统</title>
+	<link href="/static/css/hello.css" rel="stylesheet" type="text/css"/>
+	<link href="/static/css/helloadd.css" rel="stylesheet" type="text/css"/>
+	<script src="/static/js/jquery-1.9.0.js"></script>
+	<script src="/static/js/jquery.glide.js"></script>
+	<script src="/static/js/hello.js"></script>
+</head>
+	
+<body>
+	<!--标题栏-->
+	<div class="header">
+		<div class="h_logo"><a href="/" title="BME监控系统"><img src="/static/images/qaup_logo.png" alt=""/></a></div>
+		<div class="h_nav_left">
+			<span>BME监控系统</span>
+		</div>
+		<div class="h_nav">
+			<span><span id='id_user_name'>{{usrname}}</span>, 欢迎您</span>&nbsp;&nbsp;&nbsp;<span><a href="#"><i class="icon16 icon16-setting"></i>个人中心</a></span>&nbsp;&nbsp;&nbsp;<span><a href="/logout/"><i class="icon16 icon16-power"></i>退出</a></span>
+		</div>
+	</div>
+	
+	<!--菜单栏-->
+	<div class="nav">
+		<ul>
+			<li class="active"><a href="/">首页</a></li>
+			<li><a href="#">整体流水</a></li>
+			<li><a href="#">业务监控</a></li>
+			<li><a href="#">辅助定位工具</a></li>
+			<li><a href="#">优化分析建议</a></li>
+			<li><a href="#">badcase挖掘</a></li>
+		</ul>
+	</div>
+
+	<!--滑动栏    <div class="helloslider">  -->
+	<div class="mala-slider" id="js-slider">
+		<ul class="mala-slide-list">
+			<li class="mala-slide-item mala-fl" style="background: url(/static/images/slide1.jpg);">
+				<div class="mala-container">
+				<h3 class="mala-slide-title">流水监控</h3>
+				<h4 class="mala-slide-subtitle">全面 直观 实用</h4>
+				<p class="mala-slide-cont">BME营销平台各模块流水数据一览无余 , 助力产品营销 ! 
+				</p>
+				<a href="#" class="mala-btn mala-btn-primary mala-btn-larger">立即体验</a>
+				</div>
+			</li>
+			<li class="mala-slide-item mala-fl" style="background: url(/static/images/slide2.jpg);">
+				<div class="mala-container">
+				<h3 class="mala-slide-title">业务监控</h3>
+				<h4 class="mala-slide-subtitle">例行化 自动化</h4>
+				<p class="mala-slide-cont">SEM、CPS、SEO、知心、阿拉丁等各类服务多指标全方位监控、告警 , 为产品质量提升保驾护航 !</p>
+				<a href="#" class="mala-btn mala-btn-primary mala-btn-larger">立即体验</a> 
+				</div>
+			</li>
+			<li class="mala-slide-item mala-fl" style="background: url(/static/images/slide3.jpg);">
+				<div class="mala-container">
+				<h3 class="mala-slide-title">一站式解决方案</h3>
+				<h4 class="mala-slide-subtitle">简单 易用</h4>
+				<p class="mala-slide-cont">集监控、告警、定位、分析、跟踪于一体 , 为BME产品评测、业务测试提供一站式解决方案 ! </p>
+				<a href="#" class="mala-btn mala-btn-primary mala-btn-larger">立即体验</a> 
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+	<!--===========通知栏=============-->
+	<div class="mala-notice">
+		<div class="mala-container mala-clearfix">
+			<div class="mala-fl"> <i class="fa fa-volume-up"></i>一期版本即将上线, 敬请期待！</div>
+			<div class="mala-fr"> <i class="fa fa-envelope-o"></i> 邮件组 : <i class="fa fa-paw" style="margin-left:10px;"></i> hi : </div>
+		</div>
+	</div>
+	
+	<!--==============主体内容========  style="background-color:#E2E2E2;" -->
+	<div class="mala-main" >
+		<div class="mala-container mala-clearfix">
+			<figure class="mala-figure">
+				<div class="mala-service-list">
+					<div class="mala-row">
+						<div class="mala-col-md-4">
+							<div class="mala-service-item">
+								<span class="mala-service-img">
+								<img src="/static/images/index.png" />
+								</span>
+								<h4 class="mala-service-title">流水监控</h4>
+								<span class="mala-service-desc">BME各模块流水数据全面直观显示，包括SEM、CPS、知心、阿拉丁、SEO、新首页等。</span>
+							</div>
+						</div>
+						<div class="mala-col-md-4">
+							<div class="mala-service-item">
+								<span class="mala-service-img">
+								<img src="/static/images/solution.jpg" />
+								</span>
+								<h4 class="mala-service-title">业务监控</h4>
+								<span class="mala-service-desc">支持SEM、CPS、SEO、知心、阿拉丁等服务XXX个指标监控、告警。</span>
+							</div>
+						</div>
+						<div class="mala-col-md-4">
+							<div class="mala-service-item">
+								<span class="mala-service-img">
+								<img src="/static/images/robot.png" />
+								</span>
+								<h4 class="mala-service-title">一站式解决方案</h4>
+								<span class="mala-service-desc">支持监控、告警、定位、分析、跟踪等，为BME业务监控、业务测试打造一体化解决方案 。</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</figure>
+		</div>
+	</div>
+	<!--<div class="plist">
+		<div class="sec">
+		<h2><a href="#">性能测试服务</a></h2>
+		<h3>性能自动化测试</h3>
+		<p>支持http 、pbrpc等协议高性能自动化测试 ; 异步高性能 ; 支持线程数 、连接数 、速率 、 发送模式等参数灵活定制 ; 支持json格式数据做为请求 ; 满足一般性能测试 、延迟测试 、最大连接数测试 、压力测试 、长时间稳定性测试 、内存泄漏测试等场景 。</p>
+		</div>
+		<div class="sec">
+		<h2><a href="#">功能测试服务</a></h2>
+		<h3>功能自动化测试</h3>
+		<p>支持基于数据驱动的http 、pbrpc协议自动化测试 , 不需要写代码 。
+		</p>
+		</div>
+		<div class="sec sec_last">
+		<h2><a href="#"></a>性能测试全流程自动化</h2>
+		<h3>一站式解决方案</h3>
+		<p>支持性能自动化测试 ; 支持性能指标监控 ; 支持测试结果邮件发送 ; 支持性能指标报表展示 。</p>
+		</div>
+	</div>-->
+	<!--<div class="ilist">
+		<div class="sec" style='padding:0 0 0 0;margin:0 0 0 0'>
+		<div class="icon list1"></div>
+		<div class="title"><h3>性能测试服务</h3></div>
+		</div>
+		<div class="sec">
+		<div class="icon list2"></div>
+		<div class="title"><h3>功能测试服务</h3></div>
+		</div>
+		<div class="sec">
+		<div class="icon list3"></div>
+		<div class="title"><h3>一站式解决方案</h3></div>
+		</div>
+	</div>-->
+	
+    <!--==============页尾==============-->
+	<!--<div class="helloslider">
+    <footer class="mala-footer">
+        <div class="mala-container mala-clearfix">
+            <div class="mala-footer-links"></div>
+            <div class="mala-row">
+                <div class="mala-col-md-2">
+                    <dl class="mala-footer-dl">
+                        <dt class="mala-footer-dt">关于</dt>
+                        <dd class="mala-footer-dd"> <a href="" class="mala-link">帮助</a> 
+                        </dd>
+                    </dl>
+                </div>
+                <div class="mala-col-md-2">
+                    <dl class="mala-footer-dl">
+                        <dt class="mala-footer-dt">友情链接</dt>
+                        <dd class="mala-footer-dd"> <a href="" class="mala-link">联系</a> 
+                        </dd>
+                    </dl>
+                </div>
+                <div class="mala-col-md-2">
+                    <dl class="mala-footer-dl">
+                        <dt class="mala-footer-dt">反馈</dt>
+                        <dd class="mala-footer-dd"> <a href="" class="mala-link">文档中心</a> 
+                        </dd>
+                        <dd class="mala-footer-dd"> <a href="" class="mala-link">百度监控平台</a> 
+                        </dd>
+                        <dd class="mala-footer-dd"> <a href="" class="mala-link">Hi群：1425469</a> 
+                        </dd>
+                    </dl>
+                </div>
+                <div class="mala-col-md-2">
+                    <dl class="mala-footer-dl">
+                        <dt class="mala-footer-dt">百度通用元素库</dt>
+                        <dd class="mala-footer-dd"> <a href="" class="mala-link">邮箱：openserver@baidu.com</a> 
+                        </dd>
+                    </dl>
+                </div>
+                <div class="mala-col-md-4">
+                    <div class="mala-footer-copyright mala-fr">©2011-2014 百度质量部出品</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+	</div>-->
+	
+	<div class="home_foot">
+		<p>Copyright ©2014 Baidu. All Rights Reserved.
+		</p>
+		<p>
+		百度 LBS 测试 版权所有
+		</p>
+	</div>
+	
+</body>
+</html>

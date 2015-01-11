@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/js/model/highstock/exporting-server/java/highcharts-export/highcharts-export-convert/src/main/resources
+END
+app-convert.properties
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/js/model/highstock/exporting-server/java/highcharts-export/highcharts-export-convert/src/main/resources/app-convert.properties
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/js/model/highstock/exporting-server/java/highcharts-export/highcharts-export-convert/src/main/resources/log4j.properties
+END
+spring-convert.xml
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/js/model/highstock/exporting-server/java/highcharts-export/highcharts-export-convert/src/main/resources/spring-convert.xml
+END

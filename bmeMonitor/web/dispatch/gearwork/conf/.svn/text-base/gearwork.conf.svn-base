@@ -1,0 +1,5 @@
+{
+	"server_list":["10.94.33.53:8887"],
+	"log_file":"./log/gearwork.log",
+	"jobname":"gearwork"
+}

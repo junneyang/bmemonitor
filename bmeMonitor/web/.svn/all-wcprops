@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/myspace/!svn/ver/212828/lbs/bmeqa/bmeMonitor/web
+END
+bmeMonitor.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/myspace/!svn/ver/209526/lbs/bmeqa/bmeMonitor/web/bmeMonitor.py
+END
+taskRunner.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/myspace/!svn/ver/212694/lbs/bmeqa/bmeMonitor/web/taskRunner.py
+END
+stop_taskRunner.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/myspace/!svn/ver/212731/lbs/bmeqa/bmeMonitor/web/stop_taskRunner.sh
+END

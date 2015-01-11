@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/build/lib.linux-x86_64-2.7/MySQLdb
+END
+times.py
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/build/lib.linux-x86_64-2.7/MySQLdb/times.py
+END
+connections.py
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/build/lib.linux-x86_64-2.7/MySQLdb/connections.py
+END
+converters.py
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/build/lib.linux-x86_64-2.7/MySQLdb/converters.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/build/lib.linux-x86_64-2.7/MySQLdb/__init__.py
+END
+cursors.py
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/build/lib.linux-x86_64-2.7/MySQLdb/cursors.py
+END
+release.py
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/build/lib.linux-x86_64-2.7/MySQLdb/release.py
+END

@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/myspace/!svn/ver/212828/lbs/bmeqa/bmeMonitor/web/com
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/myspace/!svn/ver/212615/lbs/bmeqa/bmeMonitor/web/com/__init__.py
+END
+msgSend.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/myspace/!svn/ver/212655/lbs/bmeqa/bmeMonitor/web/com/msgSend.py
+END
+dynsqlLib.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/myspace/!svn/ver/212655/lbs/bmeqa/bmeMonitor/web/com/dynsqlLib.py
+END
+str2FileLib.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/myspace/!svn/ver/212655/lbs/bmeqa/bmeMonitor/web/com/str2FileLib.py
+END
+uuapLib.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/myspace/!svn/ver/212655/lbs/bmeqa/bmeMonitor/web/com/uuapLib.py
+END
+scheduleLib.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/myspace/!svn/ver/212655/lbs/bmeqa/bmeMonitor/web/com/scheduleLib.py
+END
+sftpLib.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/myspace/!svn/ver/212655/lbs/bmeqa/bmeMonitor/web/com/sftpLib.py
+END
+logLib.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/myspace/!svn/ver/212655/lbs/bmeqa/bmeMonitor/web/com/logLib.py
+END
+mysqlLib.py.bak
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/myspace/!svn/ver/212655/lbs/bmeqa/bmeMonitor/web/com/mysqlLib.py.bak
+END
+mailLib.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/myspace/!svn/ver/212655/lbs/bmeqa/bmeMonitor/web/com/mailLib.py
+END
+cmdLib.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/myspace/!svn/ver/212655/lbs/bmeqa/bmeMonitor/web/com/cmdLib.py
+END
+confLib.py
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/myspace/!svn/ver/212615/lbs/bmeqa/bmeMonitor/web/com/confLib.py
+END
+mysqlLib.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/myspace/!svn/ver/212828/lbs/bmeqa/bmeMonitor/web/com/mysqlLib.py
+END
+netLib.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/myspace/!svn/ver/212655/lbs/bmeqa/bmeMonitor/web/com/netLib.py
+END

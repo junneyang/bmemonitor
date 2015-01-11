@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb/constants
+END
+CR.py
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb/constants/CR.py
+END
+FIELD_TYPE.py
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb/constants/FIELD_TYPE.py
+END
+ER.py
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb/constants/ER.py
+END
+FLAG.py
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb/constants/FLAG.py
+END
+CLIENT.py
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb/constants/CLIENT.py
+END
+REFRESH.py
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb/constants/REFRESH.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/MySQLdb/constants/__init__.py
+END

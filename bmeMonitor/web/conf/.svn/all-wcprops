@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/myspace/!svn/ver/212692/lbs/bmeqa/bmeMonitor/web/conf
+END
+taskRunner.conf
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/myspace/!svn/ver/212671/lbs/bmeqa/bmeMonitor/web/conf/taskRunner.conf
+END
+gearclient.conf
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/myspace/!svn/ver/212664/lbs/bmeqa/bmeMonitor/web/conf/gearclient.conf
+END
+onetime_task.conf
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/myspace/!svn/ver/212658/lbs/bmeqa/bmeMonitor/web/conf/onetime_task.conf
+END
+period_task.conf
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/myspace/!svn/ver/212692/lbs/bmeqa/bmeMonitor/web/conf/period_task.conf
+END

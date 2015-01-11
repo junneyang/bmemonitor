@@ -1,0 +1,9 @@
+{
+	"log_file":"./log/taskrunner.log",
+	"subject":"【BME任务配置告警】任务配置ERROR",
+	"mail_server":"mail2-in.baidu.com",
+	"from_mail_addr":"yangjun03@baidu.com",
+	"to_mail_addr":"yangjun03@baidu.com,yangjun03@baidu.com",
+	"phone_list":["18665817689"],
+	"jobname":"gearwork"
+}
