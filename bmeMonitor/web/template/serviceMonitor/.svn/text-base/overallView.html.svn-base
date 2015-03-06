@@ -1,0 +1,477 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>业务监控-BME监控系统</title>
+	<link href="/static/css/style.css" rel="stylesheet" type="text/css">
+	<script src="/static/js/jquery-1.9.0.js"></script>
+	<script src="/static/js/common.js" type="text/javascript"></script>
+	<script src="/static/js/model/cycle/jquery.cycle.all.js" type="text/javascript"></script>
+	
+	<link rel="stylesheet" href="/static/css/bootstrap.css" media="screen">
+	<link rel="stylesheet" href="/static/css/scojs.css" media="screen">
+	<link rel="stylesheet" href="/static/css/buttons.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main-list.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/api.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/gy_css.css">
+
+	<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/about.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/my.css">
+
+	<script type="text/javascript" src="/static/js/jquery-1.9.0.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="/static/js/bootstrap.js"></script>
+	<script type="text/javascript" src="/static/js/sprintf.min.js"></script>
+	<script type="text/javascript" src="/static/js/help_panel.js"></script>
+
+	<link href="/static/css/hellotab.css" rel="stylesheet" type="text/css"/>
+	<link href="/static/css/helloaddtab.css" rel="stylesheet" type="text/css"/>
+	
+	<script type="text/javascript" src="/static/js/model/flaviusmatis-simplePagination.js-9d0304d/jquery.simplePagination.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/js/model/flaviusmatis-simplePagination.js-9d0304d/simplePagination.css" />
+	
+	<script type="text/javascript" src="/static/js/model/d3/demo/d3.v3.min.js"></script>
+	<script type="text/javascript" src="/static/js/pb.js"></script>
+	
+	<script type="text/javascript" src="/static/js/model/dialog/ui.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/js/model/dialog/ui.css" />
+	
+	<link rel="stylesheet" href="/static/plugins/tab-view/css/tab-view.css" type="text/css" media="screen"/>
+	<script type="text/javascript" src="/static/plugins/tab-view/js/ajax.js"></script>
+	<script type="text/javascript" src="/static/plugins/tab-view/js/tab-view.js"></script>
+	
+	<style type="text/css">
+		/*
+* 页面元素样式，标题栏
+*/
+.header {
+	height: 60px;
+	#background: #1e8d60;
+	#background: #2F0000;
+	background: #17263B;
+	line-height: 60px;
+	#border-bottom: 4px solid #187e55;
+	border-bottom: 4px solid #17263B;
+	width: 100%;
+	min-width: 1080px;
+}
+.header .h_logo {
+	float: left;
+	padding: 10px 20px 0 20px;
+	height: 50px;
+	margin-left: 15%;
+}
+.header .h_nav {
+	display: inline;
+	float: right;
+	height: 30px;
+	line-height: 24px;
+	margin-top: 20px;
+	margin-right: 15%;
+	padding-right: 20px;
+	text-align: right;
+	width: 280px;
+	z-index: 10;
+	color: white;
+}
+.header .h_nav a {
+	color:#FFFFFF;
+}
+
+.header .h_nav_left {
+	display: inline;
+	float: left;
+	height: 30px;
+	line-height: 24px;
+	margin-top: 20px;
+	#margin-right: 15%;
+	#padding-right: 20px;
+	text-align: left;
+	width: 200px;
+	z-index: 10;
+	color: white;
+	font-size:24px;
+	font-family:微软雅黑;
+}
+
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 10px sans-serif;
+  font-size:13px;
+  font-family:微软雅黑;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+.leaf_node {
+	text-decoration:underline;
+}
+	</style>
+</head>
+<body>
+	<!--标题栏-->
+	<div class="header">
+		<div class="h_logo"><a href="/" title="BME监控系统"><img src="/static/images/qaup_logo.png" alt=""/></a></div>
+		<div class="h_nav_left">
+			<span>BME监控系统</span>
+		</div>
+		<div class="h_nav">
+			<span><span id='id_user_name'>{{usrname}}</span>, 欢迎您</span>&nbsp;&nbsp;&nbsp;<span><a href="#"><i class="icon16 icon16-setting"></i>个人中心</a></span>&nbsp;&nbsp;&nbsp;<span><a href="/logout/"><i class="icon16 icon16-power"></i>退出</a></span>
+		</div>
+	</div>
+	
+	<!--菜单栏-->
+	<div class="nav">
+		<ul>
+			<li><a href="/">首页</a></li>
+			<li><a href="#">整体流水</a></li>
+			<li  class="active"><a href="/serviceMonitor/">业务监控</a></li>
+			<li><a href="#">辅助定位工具</a></li>
+			<li><a href="#">优化分析建议</a></li>
+			<li><a href="#">badcase挖掘</a></li>
+		</ul>
+	</div>
+	
+	<!--<div class="content_about">
+		<div class="container about_container main-content">
+			<div style="position:absolute;width:120px;left:0px;top:0px;bottom:0px;background-color:#fbfbfb;z-index:1">
+				<ul style="width:100%;font-family:Microsoft YaHei">
+					<li class="left-menu-li-select"><a href="/serviceMonitor/" style="color:#000;font-size:medium">监控全景图</a></li>
+					<li class="left-menu-li"><a href="/serviceMonitor/historyAlarm/" style="color:#000;font-size:medium">历史告警</a></li>
+				</ul>
+			</div>
+
+			<div class="div-content" id="id_monitorTree">
+			</div>
+		
+		</div>
+	</div>-->
+	<!--<iframe src="http://10.94.33.53:8868/tabView/" width="100%" height="500" style="margin-top:5px;"></iframe>-->
+	<div class="content_about">
+		<div class="container about_container main-content" style="border-style:none;">
+			<div id="dhtmlgoodies_tabView1">
+				<div class="dhtmlgoodies_aTab">
+					<!--This is the content of the first tab. This is just a plain &lt;DIV>. The tabs
+					are created by a javascript function.  This is the content of the first tab. This is just a plain &lt;DIV>. The tabs
+					are created by a javascript function.  This is the content of the first tab. This is just a plain &lt;DIV>. The tabs
+					are created by a javascript function. 	<br><br>
+					<a href="#" onclick="createNewTab('dhtmlgoodies_tabView1','A dynamic tab','','externalfile.html',true);return false">Create new tab dynamically</a><br>
+					<a href="#" onclick="deleteTab('Menu scripts')">Remove this tab</a><br>-->
+				<div id="id_monitorTree"></div>
+
+					
+					
+				</div>
+				<div class="dhtmlgoodies_aTab">
+					<!--This is the content of the second tab.	<br>
+					<a href="#" onclick="deleteTab('Calendar')">Remove this tab</a><br>
+					<iframe src="http://10.94.33.53:8888/serviceMonitor/historyAlarm/" width="100%" height="500" style="margin-top:5px;"></iframe>-->
+					<!--<div class="page-title mt40">告警列表
+						<a class="btn btn-primary fr" id='x3' style='margin-right:5px;text-decoration: none;' href='javascript:initPage();'><i class="icon16 icon16-refresh"></i>刷新</a>
+					</div>-->
+					<a style='margin-right:5px;float:right;text-decoration:underline;font-size:16px;' href='javascript:initPage();'>刷新</a>
+					<div class="panel mt20 mb20">
+						<div>
+							<table class="table table_bordered">
+								<thead>
+									<tr>
+										<th width="30">编号</th>
+										<th>监控对象</th>
+										<th>监控指标</th>
+										<th>描述信息</th>
+										<th>状态</th>
+										<th>时间</th>
+										<th>告警原因</th>
+										<th>处理人</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id='id_alarm_lis||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||									<tr><!--
+										<td><a href="/pb/task/?task=1" style="text-decoration:underline">1</a></td>
+										<td>pbrpc性能</td>
+										<td>2014-10-22 16:38:24</td>
+										<td>2014-10-22 16:42:24</td>
+										<td>PUBLIC-PBRPC接口</td>
+										<td><img src="/static/r_loading.gif" title="等待中"/></td>
+									</tr>
+									<tr>
+										<td><a href="/pb/task/?task=2" style="text-decoration:underline">2</a></td>
+										<td>pbrpc性能</td>
+										<td>2014-10-22 16:38:24</td>
+										<td>2014-10-22 16:42:24</td>
+										<td>PUBLIC-PBRPC接口</td>
+										<td><img src="/static/r_running.gif" title="运行中"/></td>
+									</tr>
+									<tr>
+										<td><a href="/pb/task/?task=3" style="text-decoration:underline">3</a></td>
+										<td>pbrpc性能</td>
+										<td>2014-10-22 16:38:24</td>
+										<td>2014-10-22 16:42:24</td>
+										<td>PUBLIC-PBRPC接口</td>
+										<td><img src="/static/r_fail.png" title="失败"/></td>
+									</tr>
+									<tr>
+										<td><a href="/pb/task/?task=4" style="text-decoration:underline">4</a></td>
+										<td>pbrpc性能</td>
+										<td>2014-10-22 16:38:24</td>
+										<td>2014-10-22 16:42:24</td>
+										<td>PUBLIC-PBRPC接口</td>
+										<td><img src="/static/r_success.png" title="成功"/></td>
+									</tr>
+									<tr>
+										<td><a href="/pb/task/?task=5" style="text-decoration:underline">5</a></td>
+										<td>pbrpc性能</td>
+										<td>2014-10-22 16:38:24</td>
+										<td>2014-10-22 16:42:24</td>
+										<td>PUBLIC-PBRPC接口</td>
+										<td><img src="/static/r_exception.png" title="异常"/></td>
+									</tr>-->
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div id="id_info"></div>
+					
+					<div class="list-page" style="float:right;margin-right:20px;">
+						<div id='query_id_alarm_page_list'></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		initTabs('dhtmlgoodies_tabView1',Array('监控全景图','历史告警信息'),0,"","",Array(false,false));
+	</script>
+	<script type="text/javascript">
+		$(function() {
+			initPage();
+		});
+		function initPage() {
+			var retdata=query_alarm_data(1);
+			dis_alarm_list(retdata);
+			dis_pagelist_alarm(retdata.alarm_totalcnt,5,1);
+		}
+	</script>
+	
+	<div class="home_foot" style="float:left;">
+		<p>Copyright ©2014 Baidu. All Rights Reserved.
+		</p>
+		<p>
+		百度 LBS 测试 版权所有
+		</p>
+	</div>
+	<script type="text/javascript">
+var image_width = 20;
+var image_height = 20;
+
+		var margin = {top: 5, right: 20, bottom: 20, left: 50},
+    width = 960 - margin.right - margin.left,
+    height = 800 - margin.top - margin.bottom;
+    
+var i = 0,
+	duration = 750,
+	root;
+
+var tree = d3.layout.tree()
+    .size([height, width]);
+
+var diagonal = d3.svg.diagonal()
+    .projection(function(d) { return [d.y, d.x]; });
+
+var svg = d3.select("#id_monitorTree").append("svg")
+    .attr("width", width + margin.right + margin.left)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.json("/serviceMonitor/queryMonitorTreeData/", function(error, MonitorTreeData) {
+  root = MonitorTreeData;
+  root.x0 = height / 2;
+  root.y0 = 0;
+
+  function collapse(d) {
+    if (d.children) {
+      d._children = d.children;
+      d._children.forEach(collapse);
+      d.children = null;
+    }
+  }
+
+  
+  //for (var item in root.children) {
+	//展开一级树
+	//root.children.forEach(collapse);
+	//for (var item_item in item.children) {
+		//item_item.children.forEach(collapse);
+	//}
+  //}
+  
+  update(root);
+});
+
+d3.select(self.frameElement).style("height", "800px");
+
+function getPicture(node) {
+	var status = node.status;
+	switch ( status ) {
+		case 0:
+			return '/static/blue_stop.png';
+			break;
+		case 1:
+			return '/static/red_anime.gif';
+			break;
+		case 2:
+			return '/static/black.png';
+			break;
+		case -1:
+			return '/static/blue_stop.png';
+			break;
+	}
+}
+
+function update(source) {
+
+  // Compute the new tree layout.
+  var nodes = tree.nodes(root).reverse(),
+      links = tree.links(nodes);
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d) { d.y = d.depth * 180; });
+
+  // Update the nodes…
+  var node = svg.selectAll("g.node")
+      .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+  // Enter any new nodes at the parent's previous position.
+  var nodeEnter = node.enter().append("g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+      .on("click", click);
+
+  nodeEnter.append("circle")
+      .attr("r", 1e-6)
+      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeEnter.append("text")
+      .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+      .attr("dy", ".35em")
+      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+	  .attr("class", function(d) { var cls; d.leaf_node ? cls = "leaf_node" : cls = "node"; return cls;})
+      .text(function(d) { return d.name; })
+      .style("fill-opacity", 1e-6);
+	  
+	nodeEnter.append("svg:image")
+		.attr("xlink:href", function(d){ return getPicture(d)})
+		.attr('height', image_height)
+		.attr('width', image_width)
+		.attr('x', -image_height/2)
+		.attr('y', -image_width/2)
+
+  // Transition nodes to their new position.
+  var nodeUpdate = node.transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+  nodeUpdate.select("circle")
+      .attr("r", 4.5)
+      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeUpdate.select("text")
+      .style("fill-opacity", 1);
+
+  // Transition exiting nodes to the parent's new position.
+  var nodeExit = node.exit().transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+      .remove();
+
+  nodeExit.select("circle")
+      .attr("r", 1e-6);
+
+  nodeExit.select("text")
+      .style("fill-opacity", 1e-6);
+
+  // Update the links…
+  var link = svg.selectAll("path.link")
+      .data(links, function(d) { return d.target.id; });
+
+  // Enter any new links at the parent's previous position.
+  link.enter().insert("path", "g")
+      .attr("class", "link")
+      .attr("d", function(d) {
+        var o = {x: source.x0, y: source.y0};
+        return diagonal({source: o, target: o});
+      });
+
+  // Transition links to their new position.
+  link.transition()
+      .duration(duration)
+      .attr("d", diagonal);
+
+	// Transition links to their new position.
+	/*link.transition()
+		.duration(duration)
+		.attr('style', function (d){
+				console.log(d.target.id);
+				if ( nodes[d.target.id].status == 1 )
+					return 'fill:none; stroke:red; stroke-width:2px;'
+				else if ( nodes[d.target.id].status == 0 )
+					return 'fill:none; stroke:#daa520; stroke-width:2px;'
+				else
+					return 'fill:none; stroke:#ccc; stroke-width:1.5px;'
+				})
+		.attr("d", diagonal);*/
+		
+		
+  // Transition exiting nodes to the parent's new position.
+  link.exit().transition()
+      .duration(duration)
+      .attr("d", function(d) {
+        var o = {x: source.x, y: source.y};
+        return diagonal({source: o, target: o});
+      })
+      .remove();
+
+  // Stash the old positions for transition.
+  nodes.forEach(function(d) {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+}
+
+// Toggle children on click.
+function click(d) {
+  if (d.children) {
+    d._children = d.children;
+    d.children = null;
+  } else {
+    d.children = d._children;
+    d._children = null;
+  }
+  if (d.leaf_node) {
+	//alert(d.leaf_node_id);
+	//window.open("/");     
+	createNewTab('dhtmlgoodies_tabView1','监控指标详情',"<div style='font-size:64px;font-family:微软雅黑;margin-top:50px;text-align:center;'>此处显示监控图表、监控配置、对应告警信息</div>",'',true);
+  }
+  update(d);
+}
+
+	</script>
+</body>
+</html>

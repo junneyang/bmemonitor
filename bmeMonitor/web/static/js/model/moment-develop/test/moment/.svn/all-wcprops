@@ -1,0 +1,221 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment
+END
+is_same.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/is_same.js
+END
+is_between.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/is_between.js
+END
+weeks_in_year.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/weeks_in_year.js
+END
+listers.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/listers.js
+END
+getters_setters.js
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/getters_setters.js
+END
+min_max.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/min_max.js
+END
+mutable.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/mutable.js
+END
+is_valid.js
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/is_valid.js
+END
+string_prototype.js
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/string_prototype.js
+END
+preparse_postformat.js
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/preparse_postformat.js
+END
+utc_offset.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/utc_offset.js
+END
+create.js
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/create.js
+END
+diff.js
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/diff.js
+END
+week_year.js
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/week_year.js
+END
+weeks.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/weeks.js
+END
+normalizeUnits.js
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/normalizeUnits.js
+END
+quarter.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/quarter.js
+END
+duration.js
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/duration.js
+END
+invalid.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/invalid.js
+END
+format.js
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/format.js
+END
+weekday.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/weekday.js
+END
+relative_time.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/relative_time.js
+END
+zone_switching.js
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/zone_switching.js
+END
+is_moment.js
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/is_moment.js
+END
+utc.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/utc.js
+END
+days_in_month.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/days_in_month.js
+END
+is_after.js
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/is_after.js
+END
+is_before.js
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/is_before.js
+END
+zones.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/zones.js
+END
+locale.js
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/locale.js
+END
+add_subtract.js
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/add_subtract.js
+END
+leapyear.js
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/leapyear.js
+END
+is_date.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/is_date.js
+END
+duration_from_moments.js
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/duration_from_moments.js
+END
+sod_eod.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/sod_eod.js
+END
+parsing_flags.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/test/moment/parsing_flags.js
+END

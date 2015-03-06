@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>DHTML Tab script</title>
+	<style type="text/css">
+		body{
+			margin:10px;
+			font-size:14px;
+		}
+		a{
+			color:#F00;
+		}
+	</style>
+	<link rel="stylesheet" href="/static/plugins/tab-view/css/tab-view.css" type="text/css" media="screen"/>
+	<script type="text/javascript" src="/static/plugins/tab-view/js/ajax.js"></script>
+	<script type="text/javascript" src="/static/plugins/tab-view/js/tab-view.js"></script>
+</head>
+<body>
+	<div id="dhtmlgoodies_tabView1">
+		<div class="dhtmlgoodies_aTab">
+			This is the content of the first tab. This is just a plain &lt;DIV>. The tabs
+			are created by a javascript function.  This is the content of the first tab. This is just a plain &lt;DIV>. The tabs
+			are created by a javascript function.  This is the content of the first tab. This is just a plain &lt;DIV>. The tabs
+			are created by a javascript function. 	<br><br>
+			<a href="#" onclick="createNewTab('dhtmlgoodies_tabView1','A dynamic tab','','externalfile.html',true);return false">Create new tab dynamically</a><br>
+			<a href="#" onclick="deleteTab('Menu scripts')">Remove this tab</a><br>
+			
+
+			
+			
+		</div>
+		<div class="dhtmlgoodies_aTab">
+			This is the content of the second tab.	<br>
+			<a href="#" onclick="deleteTab('Calendar')">Remove this tab</a><br>
+		</div>
+		<div class="dhtmlgoodies_aTab">
+			This script is tested in 
+			<a href="#" onclick="deleteTab('Menus')">Remove this tab</a><br>
+			<ul>
+				<li>IE 5.5</li>
+				<li>IE 6</li>
+				<li>Opera 8.5</li>
+				<li>Firefox</li>
+			</ul>	
+		</div>
+		<div class="dhtmlgoodies_aTab">
+			Content of tab 4<br>
+		</div>
+	</div>
+	<script type="text/javascript">
+		initTabs('dhtmlgoodies_tabView1',Array('Menu scripts','Calendar','Menus','About us'),0,"","",Array(false,true,true,true));
+	</script>
+</body>
+</html>

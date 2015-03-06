@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
-from logLib import *
 import subprocess
 import commands
 
 def cmd_execute(cmd,mode="commands"):
-    logging.debug("cmdStr:"+cmd)
     if(mode == "subprocess"):
         ps=subprocess.Popen(cmd,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
         ps.wait()
@@ -16,7 +14,7 @@ def cmd_execute(cmd,mode="commands"):
         return status,output
 
 if __name__ == "__main__":
-    status,output=cmd_execute("python uuapLib.py")
+    status,output=cmd_execute("ls -a")
     print status
     print output
 

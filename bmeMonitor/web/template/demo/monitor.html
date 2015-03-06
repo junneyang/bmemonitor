@@ -1,0 +1,916 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;border: none;padding: 0px;margin: 0px;">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7;  IE=EDGE"/>
+	<meta content="导航页面" name="keywords" />
+	<meta content="导航页面" name="description" />
+	<meta name="generator" content="导航页面"/>
+	<title>业务监控-BME监控系统</title>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap-theme.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/css/demo/nav/slider.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/media/css/jquery.dataTables.css" type="text/css"/>
+	<!--<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/extensions/TableTools/css/dataTables.tableTools.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/extensions/Editor-1.3.3/css/dataTables.editor.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/font-awesome.css" type="text/css"/>-->
+	<style type="text/css">
+		/* Move down content because we have a fixed navbar that is 50px tall */
+		body {
+			padding-top: 50px;
+			padding-bottom: 20px;
+		}
+		/* nav tabs */
+		.nav-tabs > li .close {
+			margin: -3px 0 0 10px;
+			font-size: 18px;
+			padding: 5px 0;
+			float: right;
+		}
+		.nav-tabs > li a[data-toggle=tab] {
+			float: left!important;
+		}
+		/* data tables */
+		th, td { white-space: nowrap; }
+		div.dataTables_wrapper {
+			width: auto;
+			margin: 10px 10px 0px 10px;
+		}
+	</style>
+</head>
+<body>
+	<!-- Navigation
+	================================================== -->
+	<nav class="navbar navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" style="font-family:微软雅黑;font-weight:bold;color:#FFF;"><!--<img alt="Brand" src="/static/images/qaup_logo.png"/>-->BME监控系统</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#">主页</a></li>
+					<li><a href="#">整体流水</a></li>
+					<li class="active"><a href="/monitor/">业务监控</a></li>
+					<li><a href="#">辅助定位</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">优化分析<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">优化分析建议</a></li>
+							<li class="divider"></li>
+							<li><a href="#">badcase挖掘</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!--<form class="navbar-form navbar-left" role="search">
+					<div class="form-group"><input type="text" class="form-control" placeholder="Search"></div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>-->
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">{{usrname}}<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">个人中心</a></li>
+							<li><a href="/logout/">退出登录</a></li>
+						</ul>
+					</li>
+					<!--<li class="divider-vertical"></li>-->
+					<li><a href="#">帮助</a></li>
+				</ul>
+			</div><!-- /.nav-collapse -->
+		</div><!-- /.container -->
+	</nav><!-- /.navbar -->
+	<!--=== Content Part ===-->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3">
+				<div style="padding: 20px 0px 10px 0px;">
+					<div class="input-group">
+						<input type="text" class="form-control " placeholder="Search for..."/>
+						<span class="input-group-btn">
+							<!--<button class="btn btn-default btn-lg" type="button"><span class="glyphicon glyphicon-search"></span></button>-->
+							<button class="btn btn-info" type="button" onclick="">Go!</button>
+							<button class="btn btn-info" type="button" onclick="javascript:refreshTree();">Refresh</button>
+						</span>
+					</div><!-- /input-group -->
+				</div>
+				<div id="tree">
+					<div id="treeviewLoading" class="text-center" style="display:none;margin-top:40px;"><img src="/static/loading.gif" class="img-responsive center-block" alt="Monitor Tree"/><span class="text-muted">加载中...</span></div>
+				</div>
+				<!--<div class="service">
+					<div class="headline">
+						<h4>监控项信息</h4>
+					</div>
+					<div class="list-group">
+						<a href="javascript:;" class="list-group-item" onclick="filterItem('')"><span class="label label-info pull-right item_all_span"></span><span class="glyphicon glyphicon-plus-sign"></span>&nbsp<b>总数</b></a>
+						<a href="javascript:;" class="list-group-item" onclick="filterItem('1')"><span class="label label-success pull-right item_success_span"></span><span class="glyphicon glyphicon-ok-sign"></span>&nbsp<b>成功监控</b></a>
+						<a href="javascript:;" class="list-group-item" onclick="filterItem('-2')"><span class="label label-danger pull-right item_fail_span"></span><span class="glyphicon glyphicon-remove-sign"></span>&nbsp<b>失败监控</b></a>
+						<a href="javascript:;" class="list-group-item" onclick="filterItem('-1')"><span class="label label-warning pull-right item_error_span"></span><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp<b>出错监控</b></a>
+						<a href="javascript:;" class="list-group-item" onclick="filterItem('0')"><span class="label label-default pull-right item_disable_span"></span><span class="glyphicon glyphicon-info-sign"></span>&nbsp<b>无效监控</b></a>
+					</div>
+				</div>-->
+			</div>
+			<div class="col-md-9 sorting-block">
+				<div class="tabable" style=" margin-top: 20px; " id="items_tab">
+					<ul class="nav nav-tabs" id="pageTab"><!-- id="item_nav"-->
+						<li class="active"><a href="#monitor_view" data-toggle="tab">监控全景</a></li>
+						<li><a href="#history_alarm" data-toggle="tab">历史告警</a></li>
+					</ul>
+					<div class="tab-content" id="pageTabContent">
+						<div class="tab-pane active" id="monitor_view">
+							<div class="container-fluid" style=" margin-top: 10px; ">
+								<!--<iframe id="panorama_view" src="" width="100%" height="500" frameborder="0" style=" ">
+								 </iframe>-->
+								<h5 class="page-header">Dashboard</h5>
+								<button id="id_dashboard_btn" type="button" class="btn btn-link pull-right" onclick="javascript:refreshMonitorMetricsChart();"><!--<span class="glyphicon glyphicon-refresh"></span> -->刷新</button>
+								<!--<div class="row placeholders">
+									<div class="col-xs-12 col-sm-6 placeholder text-center">
+										<img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail"/>
+										<div id="container_monitor_metrics">
+											<div id="metricsChartLoading" class="text-center" style="display:none;margin-top:0px;"><img src="/static/loading.gif" class="img-responsive center-block" alt="Monitor Tree"/><span class="text-muted">加载中...</span></div>
+										</div>
+										<h4>Label</h4>
+										<span class="text-muted">6大监控对象, 上线3个监控指标</span>
+									</div>
+									<div class="col-xs-12 col-sm-6 placeholder  text-center">
+										<img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail"/>
+										<div id="container_alarm_stat"></div>
+										<h4>Label</h4>
+										<span class="text-muted">Something else</span>
+									</div>
+								</div>-->
+								<div class="row placeholders  text-center" style="min-height:400px;">
+									<div class="col-xs-12 col-sm-12 placeholder">
+										<!--<img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail"/>-->
+										<div id="container_monitor_metrics">
+											<div id="metricsChartLoading" class="text-center" style="display:none;margin-top:0px;"><img src="/static/loading.gif" class="img-responsive center-block" alt="Monitor Tree"/><span class="text-muted">加载中...</span></div>
+										</div>
+										<!--<h4>Label</h4>
+										<span class="text-muted">Something else</span>-->
+									</div>
+								</div>
+								<div class="row placeholders  text-center" style="margin-top:10px;min-height:400px;">
+									<div class="col-xs-12 col-sm-12 placeholder">
+										<!--<img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail"/>-->
+										<div id="container_alarm_stat">
+											<div id="alarmStatLoading" class="text-center" style="display:none;margin-top:0px;"><img src="/static/loading.gif" class="img-responsive center-block" alt="Monitor Tree"/><span class="text-muted">加载中...</span></div>
+										</div>
+										<!--<h4>Label</h4>
+										<span class="text-muted">Something else</span>-->
+									</div>
+								</div>
+								<div class="row placeholders  text-center" style="margin-top:10px;min-height:400px;">
+									<div class="col-xs-12 col-sm-12 placeholder">
+										<!--<img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail"/>-->
+										<div id="container_alarm_trend">
+											<div id="alarmTrendLoading" class="text-center" style="display:none;margin-top:0px;"><img src="/static/loading.gif" class="img-responsive center-block" alt="Monitor Tree"/><span class="text-muted">加载中...</span></div>
+										</div>
+										<!--<h4>Label</h4>
+										<span class="text-muted">Something else</span>-->
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="history_alarm">
+							<div class="container-fluid" style=" margin-top: 10px; ">
+								<h5 class="page-header">Alarmlist</h5>
+								<button id="id_btn_alarm_refresh" type="button" class="btn btn-link pull-right" data-loading-text="loading..." autocomplete="off" onclick="javascript:refreshAlarmList();"><!--<span class="glyphicon glyphicon-refresh"></span> -->刷新</button>
+								<!--<div class="panel panel-success" style=" margin-bottom: 0px; ">
+									<div class="panel-body" style=" padding-top: 10px; padding-bottom: 10px; padding-right: 5px; padding-left: 5px; border-right-width: 5px; ">
+										<div class="control-group">
+											<div class="controls">
+												<label class="control-label">批量添加报警说明:</label>
+												<input type="text" placeholder="起始ID" class="input-large" id="start_item_id" size="18px">
+												-
+												<input type="text" placeholder="结束ID" class="input-large" id="end_item_id" size="18px" value="29096345">
+												&nbsp
+												<label class="control-label">报警解释:</label>
+												<select class="input-xxlarge valtype" data-valtype="option" id="items_rea">
+													<option value="">请选择</option><option value="线上问题">线上问题</option><option value="线上波动">线上波动</option><option value="同比环比数据异常">同比环比数据异常</option><option value="报警阈值不合理">报警阈值不合理</option><option value="第三方引起的问题">µ谌??方引起的问题</option><option value="框架程序问题">框架程序问题</option>
+												</select>
+												&nbsp
+												<label class="control-label">报警详细解释:</label>
+												<input type="text" placeholder="详细原因" class="input-xxxlarge" id="items_detail_rea">
+												&nbsp
+												<button class="btn-u" type="button" onclick="exp_items()" id="save_items_warning">保存</button>
+											</div>
+										</div>-
+										<form class="form-horizontal" role="form">
+										  <div class="form-group">
+											<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+											<div class="col-sm-10">
+											  <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+											</div>
+										  </div>
+										  <div class="form-group">
+											<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+											<div class="col-sm-10">
+											  <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+											</div>
+										  </div>
+										  <div class="form-group">
+											<div class="col-sm-offset-2 col-sm-10">
+											  <div class="checkbox">
+												<label>
+												  <input type="checkbox"> Remember me
+												</label>
+											  </div>
+											</div>
+										  </div>
+										  <div class="form-group">
+											<div class="col-sm-offset-2 col-sm-10">
+											  <button type="submit" class="btn btn-default">Sign in</button>
+											</div>
+										  </div>
+										</form>
+									</div>
+								</div>-->
+								<!--<iframe id="items_history" src="" width="105%" height="100%" frameborder="0">
+								</iframe>-->
+								<!-- Modal -->
+								<div class="modal fade" id="alarmDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+												<h4 class="modal-title" id="myModalLabel">Alarm Detail</h4>
+											</div>
+											<div class="modal-body">
+												<div class="panel panel-info">
+													<div class="panel-heading">description</div>
+													<div class="panel-body" id="id_alarm_detail">
+													</div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+												<!--<button type="button" class="btn btn-primary">Save changes</button>-->
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal fade" id="alarmUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+												<div class="pull-right">
+													<div id="updatealarmLoading" class="text-center" style="display:none;margin-top:0px;margin-right:10px;"><img src="/static/r_running.gif" class="img-responsive center-block" alt="Monitor Tree"/><!--<span class="text-muted">更新中...</span>--></div>
+												</div>
+												<h4 class="modal-title" id="myModalLabel">Alarm Update</h4>
+											</div>
+											<div class="modal-body">
+												<span id="id_alarm_id" style="display:none;"></span>
+												<span id="id_alarm_status_cu" style="display:none;"></span>
+												<form class="form-horizontal" role="form" id="id_alarmUpdateForm">
+													<div class="form-group">
+														<label for="inputAlarmStatus" class="col-sm-2 control-label">告警状态</label>
+														<div class="col-sm-10">
+															<label class="radio-inline">
+																<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="0"/> 活动态
+															</label>
+															<label class="radio-inline">
+																<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="1"/> 恢复态
+															</label>
+														</div>
+													</div>
+													<div class="form-group has-feedback" id="id_div_alarm_cause">
+														<label for="inputAlarmCause" class="col-sm-2 control-label" for="id_alarm_cause">告警原因</label>
+														<div class="col-sm-10" id="id_div_alarm_cause_input">
+															<input type="text" class="form-control" id="id_alarm_cause" name="id_alarm_cause" placeholder="填写具体原因, 必填..."/>
+														</div>
+													</div>
+													<div class="form-group">
+														<label for="inputAlarmHandleBy" class="col-sm-2 control-label">处理人</label>
+														<div class="col-sm-10">
+															<input type="text" class="form-control" id="idAlarmHandby" readonly>
+														</div>
+													</div>
+												</form>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+												<button type="button" class="btn btn-default" onclick="javascript:alarmUpdateProcess();">Update</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<table id="history_alarm_tbl" class="display" cellspacing="0" width="100%">
+									<thead>
+										<tr>
+											<th>编号</th>
+											<th>监控对象</th>
+											<th>监控指标</th>
+											<th>产生时间</th>
+											<th>状态</th>
+											<th>清除时间</th>
+											<!--<th>告警详情</th>-->
+											<th>处理人</th>
+											<th>告警原因</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<!--<tbody id="history_alarm_tbl_tbody">
+										<tr>
+											<td>Tiger</td>
+											<td>Nixon</td>
+											<td>System Architect</td>
+											<td>Edinburgh</td>
+											<td>61</td>
+											<td>2011/04/25</td>
+											<td>$320,800</td>
+											<td>5421</td>
+											<td>t.nixon@datatables.net</td>
+											<td>5421</td>
+										</tr>
+									</tbody>-->
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!--/container-->
+	<!--<div class="container">
+		<a href="javascript:;" id="btnAddPage" role="button">Add Page</a>  
+		<ul id="pageTab" class="nav nav-tabs">
+			<li class="active"><a href="#page1" data-toggle="tab">Page1</a></li>
+		</ul>
+		<div id="pageTabContent" class="tab-content">
+			<div class="tab-pane active" id="page1">
+			Content Page1
+			</div>
+		</div>
+	</div>	-->
+	<div class="container">
+		<hr class="featurette-divider">
+	</div><!-- /.container -->
+	<footer class="footer">
+		<div class="container text-center">
+			<p class="text-muted">Copyright ©2014 Baidu. All Rights Reserved. </p>
+			<p class="text-muted">百度 LBS 测试 版权所有 </p>
+		</div>
+	</footer>
+	<script src="/static/js/jquery-1.11.2.min.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script>
+	<script src="/static/js/model/bootstrap-treeview-master/bootstrap-treeview-master/dist/bootstrap-treeview.min.js"></script>
+	<script src="/static/js/model/Highcharts-4.0.4/js/highcharts.js"></script>
+	<script src="/static/js/model/Highcharts-4.0.4/js/highcharts.js"></script>
+	<script src="/static/js/model/DataTables-1.10.4-trial/media/js/jquery.dataTables.min.js"></script>
+	<!--<script src="/static/js/model/DataTables-1.10.4-trial/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+	<script src="/static/js/model/DataTables-1.10.4-trial/extensions/Editor-1.3.3/js/dataTables.editor.min.js"></script>-->
+	<script src="/static/js/model/jquery-validation-1.13.1/dist/jquery.validate.min.js"></script>
+	<script type="text/javascript">
+		/**********************************************************************************************
+		*****tab选项卡动态添加删除
+		**********************************************************************************************/
+		var tabs = new Array();
+		function addTab(tabname, tabID, tabContent) {
+			if(jQuery.inArray(tabID, tabs) == -1){
+				$('#pageTab').append(
+					$('<li><a id="tab_' + tabID.toString() + '" href="#tab_content_' + tabID.toString() + '" data-toggle="tab">' + tabname +
+					'<button class="close" type="button" ' +
+					'title="Remove this page">×</button>' +
+					'</a></li>'));
+				$('#pageTabContent').append(
+					$('<div class="tab-pane" id="tab_content_' + tabID.toString() + 
+					'">' + tabContent + '</div>'));
+				//$('#' + tabname).tab('show');
+				tabs.push(tabID);
+				$("#tab_" + tabID.toString()).tab('show');//显示当前点击tab
+			} else {
+				$("#tab_" + tabID.toString()).tab('show');//显示当前选中的链接及关联的content
+			}
+		}
+		$(document).ready(function() {
+			//Remove a Tab
+			$('#pageTab').on('click', ' li a .close', function() {
+				var tab_ID = $(this).parent().attr('id');
+				var tab_ID = tab_ID.split("_")[1];
+				var tabId = $(this).parents('li').children('a').attr('href');
+				$(this).parents('li').remove('li');
+				$(tabId).remove();
+				$('#pageTab a:first').tab('show');
+				var index = jQuery.inArray(Number(tab_ID), tabs);
+				tabs.splice(index, 1);
+			});
+			//Click Tab to show its content
+			$("#pageTab").on("click", "a", function(e) {
+				e.preventDefault();
+				$(this).tab('show');
+			});
+		});
+		/**********************************************************************************************
+		*****监控树操作
+		**********************************************************************************************/
+		function getTreeData() {
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/querytreedata/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+		function displayTree(treeData) {
+			$('#tree').treeview({
+				data:treeData,
+				collapseIcon:"glyphicon glyphicon-minus-sign",
+				emptyIcon:"glyphicon glyphicon-ban-circle",
+				enableLinks:true,
+				expandIcon:"glyphicon glyphicon-plus-sign",
+				highlightSelected:false,
+				onhoverColor:"#D3D7CF",
+				levels:2,
+				selectedColor:"#FFFFFF",
+				selectedBackColor:"#D3D7CF",
+				nodeIcon:"hidden",
+				showBorder:false,
+				showTags:true
+			});
+			//$( ".badge" ).css( "background-color", "red" );
+		}
+		function initTree() {
+			$('#treeviewLoading').show();
+			$.when(getTreeData()).done(function(data){
+				$('#treeviewLoading').hide();
+				displayTree(data);
+			});
+		}
+		function refreshTree() {
+			$('#tree').treeview('remove');
+			$('#tree').append('<div id="treeviewLoading" class="text-center" style="display:none;margin-top:40px;"><img src="/static/loading.gif" class="img-responsive center-block" alt="Monitor Tree"/><span class="text-muted">加载中...</span></div>');
+			$('#treeviewLoading').show();
+			$.when(getTreeData()).done(function(data){
+				$('#treeviewLoading').hide();
+				displayTree(data);
+			});
+		}
+		$(document).ready(function() {
+			initTree();
+			$('#tree').on('nodeSelected', function(event, node) {
+				if (node.own_tab) {
+					var content = "";
+					//content    +=   '<h2 class="page-header">Detail</h2>';
+					content    +=   '<div id="id_btn_group_' + node.id + '" class="btn-group pull-right" role="group" aria-label="..." style="margin-top:5px;">';
+					content    +=   	'<button id="id_btn_001_' + node.id + '" type="button" class="btn btn-info" onclick="javascript:disMetricsData(\'' + node.id + '\',\'' + node.text + '\',\'' + node.monitorDataLink + '\');">监控数据</button>';
+					content    +=   	'<button id="id_btn_002_' + node.id + '" type="button" class="btn btn-default" onclick="javascript:disMetricsConf(\'' + node.id + '\',\'' + node.text + '\',\'' + node.monitorDataLink + '\');">告警配置</button>';
+					content    +=   	'<button id="id_btn_003_' + node.id + '" type="button" class="btn btn-default" onclick="javascript:disMetricsAlarm(\'' + node.id + '\',\'' + node.text + '\',\'' + node.monitorDataLink + '\');">相关告警</button>';
+					content    +=   	'</div>';
+					content    +=   	'<iframe id="metrics_data_view_' + node.id.toString() + '" src="" width="100%" height="800" frameborder="0" style=" "></iframe>';
+					addTab(node.text, node.id, content);
+					$("#metrics_data_view_" + node.id.toString()).attr('src', node.monitorDataLink);
+				}
+			});
+		});
+		/**********************************************************************************************
+		*****监控指标数据、配置、告警展示
+		**********************************************************************************************/
+		function disMetricsData(nodeID, nodeText, monitorDataLink) {
+			$("#id_btn_group_" + nodeID).children().removeClass("btn-info");
+			$("#id_btn_001_" + nodeID).addClass("btn-info");
+			$("#metrics_data_view_" + nodeID.toString()).attr('src',monitorDataLink);
+		}
+		function disMetricsConf(nodeID, nodeText, monitorDataLink) {
+			$("#id_btn_group_" + nodeID).children().removeClass("btn-info");
+			$("#id_btn_002_" + nodeID).addClass("btn-info");
+			$("#metrics_data_view_" + nodeID.toString()).attr('src',"");
+		}
+		function disMetricsAlarm(nodeID, nodeText, monitorDataLink) {
+			$("#id_btn_group_" + nodeID).children().removeClass("btn-info");
+			$("#id_btn_003_" + nodeID).addClass("btn-info");
+			$("#metrics_data_view_" + nodeID.toString()).attr('src',"/queryMetricsAlarm/?metricsID=" + nodeID);
+		}
+		/**********************************************************************************************
+		*****监控指标图
+		**********************************************************************************************/
+		function refreshMonitorMetricsChart() {
+			var $btn = $("#id_dashboard_btn").button('loading');
+			initMonitorMetricsChart();
+			initMonitorStatChart();
+			initAlarmTrendChart();
+			setTimeout(function () {
+				$btn.button('reset');
+			}, 200);
+		}
+		$(document).ready(function() {
+			initMonitorMetricsChart();
+		});
+		function initMonitorMetricsChart(){
+			$('#metricsChartLoading').show();
+			$.when(queryMonitorMetricsData()).done(function(data){
+				$('#metricsChartLoading').hide();
+				disMonitorMetricsChart(data[0], data[1]);
+			});
+		}
+		function queryMonitorMetricsData() {
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/queryMonitorMetricsData/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+		function disMonitorMetricsChart(categories, data) {
+			metrics_cnt = 0;
+			$.each(data,function(n,value) {  
+				metrics_cnt += value;
+			});
+			$('#container_monitor_metrics').highcharts({
+				chart: {
+					type: 'column',
+					margin: [ 50, 50, 100, 80]
+				},
+				title: {
+					text: '监控指标统计'
+				},
+				subtitle: { 
+					text: categories.length.toString() + '大类监控对象-上线' + metrics_cnt.toString() + '个监控指标'  //副标题
+				}, 
+				credits: { 
+					enabled: false   //右下角不显示LOGO 
+				}, 
+				xAxis: {
+					categories: categories,
+					labels: {
+						rotation: -45,
+						align: 'right',
+						//lineWidth: 2, //基线宽度
+						style: {
+							fontSize: '13px',
+							fontFamily: '微软雅黑, Verdana, sans-serif'
+						}
+					}
+				},
+				yAxis: {
+					min: 0,
+					//lineWidth: 2, //基线宽度
+					title: {
+						text: '监控指标/个'
+					}
+				},
+				legend: {
+					enabled: true
+				},
+				tooltip: {
+					pointFormat: '<b>{point.y} </b>个监控指标',
+				},
+				exporting: {
+					enabled: true  //设置导出按钮不可用
+				},
+				series: [{
+					name: '监控指标',
+					data: data,
+					dataLabels: {
+						enabled: true,
+						rotation: -90,
+						color: '#FFFFFF',
+						align: 'right',
+						x: 4,
+						y: 10,
+						style: {
+							fontSize: '13px',
+							fontFamily: '微软雅黑, Verdana, sans-serif',
+							textShadow: '0 0 3px black'
+						}
+					}
+				}]
+			});
+		}
+		/**********************************************************************************************
+		*****告警统计图
+		**********************************************************************************************/
+		$(document).ready(function() {
+			initMonitorStatChart();
+		});
+		function initMonitorStatChart(){
+			$('#alarmStatLoading').show();
+			$.when(queryMonitorStatData()).done(function(data){
+				var categories = new Array();
+				var dataArray = new Array();
+				var dataArray_all = new Array();
+				var dataArray_inactive = new Array();
+				var dataArray_active = new Array();
+				$.each(data[0].nodes,function(n,value) {  
+					categories.push(value.text);
+					if(value.alarm_all.length == 0) {
+						dataArray_all.push(0);
+					} else {
+						dataArray_all.push(Number(value.alarm_all[0]));
+					}
+					if(value.alarm_inactive.length == 0) {
+						dataArray_inactive.push(0);
+					} else {
+						dataArray_inactive.push(Number(value.alarm_inactive[0]));
+					}
+					if(value.tags.length == 0) {
+						dataArray_active.push(0);
+					} else {
+						dataArray_active.push(Number(value.tags[0]));
+					}
+				});
+				dataArray.push(dataArray_all);
+				dataArray.push(dataArray_inactive);
+				dataArray.push(dataArray_active);
+				$('#alarmStatLoading').hide();
+				disAlarmStatChart(categories, dataArray);
+			});
+		}
+		function queryMonitorStatData() {
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/querytreedata/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+		function disAlarmStatChart(categories, data) {
+			$('#container_alarm_stat').highcharts({
+				chart: {
+					type: 'column'
+				},
+				title: {
+					text: '历史告警统计'
+				},
+				subtitle: {
+					text: '总数-已恢复-活动态'
+				},
+				credits: { 
+					enabled: false   //右下角不显示LOGO 
+				}, 
+				xAxis: {
+					categories: categories
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: '数量/个'
+					}
+				},
+				tooltip: {
+					pointFormat: '<b>{series.name} : {point.y}</b>个 ',
+					shared: true,
+					useHTML: true
+				},
+				exporting: {
+					enabled: true  //设置导出按钮不可用
+				},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0
+					}
+				},
+				series: [{
+					name: '总数',
+					data: data[0]
+
+				}, {
+					name: '已恢复',
+					data: data[1]
+
+				}, {
+					name: '活动态',
+					data: data[2]
+
+				}]
+			});
+		}
+		/**********************************************************************************************
+		*****告警趋势图
+		**********************************************************************************************/
+		$(document).ready(function() {
+			initAlarmTrendChart();
+		});
+		function initAlarmTrendChart(){
+			$('#alarmTrendLoading').show();
+			$.when(queryAlarmTrendData()).done(function(data){
+				$('#alarmTrendLoading').hide();
+				disAlarmTrendChart(data.date, data.data);
+			});
+		}
+		function queryAlarmTrendData() {
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/queryAlarmDayperiod/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+		function disAlarmTrendChart(categories, data) {
+			$('#container_alarm_trend').highcharts({
+				title: {
+					text: '新增告警趋势',
+					x: -20 //center
+				},
+				subtitle: {
+					text: '一周新增告警统计',
+					x: -20
+				},
+				credits: { 
+					enabled: false   //右下角不显示LOGO 
+				}, 
+				xAxis: {
+					categories: categories
+				},
+				yAxis: {
+					title: {
+						text: '新增告警/个'
+					},
+					plotLines: [{
+						value: 0,
+						width: 1,
+						color: '#808080'
+					}]
+				},
+				tooltip: {
+					valueSuffix: ''
+				},
+				exporting: {
+					enabled: true  //设置导出按钮不可用
+				},
+				legend: {
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'middle',
+					borderWidth: 0
+				},
+				series: [{
+					name: '新增',
+					data: data
+				}]
+			});
+		}
+		/**********************************************************************************************
+		*****历史告警表体验优化
+		**********************************************************************************************/
+		/*$(document).ready(function() {
+			var lastIdx = null;
+			var table = $('#history_alarm_tbl').dataTable( {
+				"scrollX": true,
+				"lengthMenu": [[10, 25, 50, 100], [10, 25, 50, 100]],
+				"order": [[ 0, "desc" ]],
+				"pagingType": "full_numbers"
+			} );
+			$('#history_alarm_tbl tbody')
+				.on( 'mouseover', 'td', function () {
+					var colIdx = table.cell(this).index().column;
+		 
+					if ( colIdx !== lastIdx ) {
+						$( table.cells().nodes() ).removeClass( 'highlight' );
+						$( table.column( colIdx ).nodes() ).addClass( 'highlight' );
+					}
+				} )
+				.on( 'mouseleave', function () {
+					$( table.cells().nodes() ).removeClass( 'highlight' );
+			} );
+		} );*/
+		/**********************************************************************************************
+		*****历史告警表查询显示
+		**********************************************************************************************/
+		$(document).ready(function() {
+			var table = $('#history_alarm_tbl').dataTable( {
+				"ajax":'/queryHistoryAlarm/',
+				//"scrollX": true,
+				"order": [[ 0, "desc" ]],
+				"pagingType": "full_numbers",
+			});
+		});
+		function refreshAlarmList() {
+			var $btn = $("#id_btn_alarm_refresh").button('loading');
+			//异步, 加载状态人为延时500ms
+			$('#history_alarm_tbl').DataTable().ajax.reload();
+			//$btn.button('reset');
+			setTimeout(function () {
+				$btn.button('reset');
+			}, 200);
+		}
+		/**********************************************************************************************
+		*****告警详情查看对话框
+		**********************************************************************************************/
+		function queryAlarmDetail(alarmID) {
+			var defer = $.Deferred();
+			$.ajax({
+				type: "GET",
+				url : '/queryAlarmDetail/?alarm_id=' + alarmID,
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+		function alarmDetail(alarmID){
+			initalarmDetail();
+			var t = '<div id="alarmDetailLoading" class="text-center" style="display:none;margin-top:0px;"><img src="/static/loading.gif" class="img-responsive center-block" alt="Monitor Tree"/><span class="text-muted">加载中...</span></div>';
+			$("#id_alarm_detail").append(t);
+			$('#alarmDetailLoading').show();
+			$.when(queryAlarmDetail(alarmID)).done(function(data){
+				$('#alarmDetailLoading').hide();
+				$("#id_alarm_detail").append(data.data);
+			});
+		}
+		function initalarmDetail() {
+			$('#alarmDetail').modal({
+				show: true,
+				backdrop: 'static',
+				keyboard: false
+			});
+			$("#id_alarm_detail").empty();
+		}
+		/**********************************************************************************************
+		*****告警信息更新
+		**********************************************************************************************/
+		function initalarmUpdate(alarmID, status, cause, handby) {
+			$('#alarmUpdate').modal({
+				show: true,
+				backdrop: 'static',
+				keyboard: false
+			});
+			document.getElementById("id_alarm_id").innerHTML = alarmID;
+			document.getElementById("id_alarm_status_cu").innerHTML = status;
+			if(status == "0") {
+				document.getElementById("inlineRadio1").checked = true;
+			} else if(status == "1") {
+				document.getElementById("inlineRadio2").checked = true;
+			}
+			document.getElementById("id_alarm_cause").value = cause;
+			document.getElementById("idAlarmHandby").value = handby;
+		}
+		function alarmUpdateProcess() {
+			var alarmID = document.getElementById("id_alarm_id").innerHTML;
+			var status_cu = document.getElementById("id_alarm_status_cu").innerHTML;
+			var status = radioSelectValue("inlineRadioOptions");
+			var cause = document.getElementById("id_alarm_cause").value;
+			var handby = document.getElementById("idAlarmHandby").value;
+			if(cause == "") {
+				alert("告警原因为必填字段 ! ");
+			} else {
+				$('#updatealarmLoading').show();
+				$.when(updateAlarmInfo(alarmID, status_cu, status, cause, handby)).done(function(data){
+					$('#updatealarmLoading').hide();
+					if(data.retcode == 0) {
+						$('#alarmUpdate').modal('hide');
+						refreshAlarmList();
+					}
+				});
+			}
+		}
+		function radioSelectValue(radioName) {
+			var radio = document.getElementsByName(radioName);
+			for(var i=0; i<radio.length; i++) {
+				if(radio[i].checked) {
+					return radio[i].value;
+					break;
+				}
+			}
+		}
+		function updateAlarmInfo(alarmID, status_cu, status, cause, handby) {
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/updateAlarmInfo/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				data:{alarmID:alarmID,status_cu:status_cu,status:status,cause:cause,handby:handby},
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+	</script>
+</body>
+</html>
+

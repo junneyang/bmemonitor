@@ -1,5 +1,6 @@
 {
-	"server_list":["10.94.33.53:8887"],
+	"server_list":["10.94.54.51:8877"],
 	"log_file":"./log/gearwork.log",
-	"jobname":"gearwork"
+	"jobname":"gearwork",
+	"phone_list":["18665817689"]
 }

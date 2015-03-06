@@ -1,0 +1,500 @@
+[
+	{
+		"text": "BME",
+		"icon": "",
+		"color": "#000000",
+		"backColor": "#FFFFFF",
+		"href": "#",
+		"tags": [],
+		"alarm_all": [],
+		"alarm_inactive": [],
+		"own_tab": false,
+		"id":1,
+		"nodes": [
+			{
+				"text": "SEM",
+				"icon": "",
+				"color": "#000000",
+				"backColor": "#FFFFFF",
+				"href": "#",
+				"tags": [],
+				"alarm_all": [],
+				"alarm_inactive": [],
+				"own_tab": false,
+				"id":2,
+				"nodes": [
+					{
+						"text": "账户监控",
+						"icon": "",
+						"color": "#000000",
+						"backColor": "#FFFFFF",
+						"href": "#",
+						"tags": [],
+						"alarm_all": [],
+						"alarm_inactive": [],
+						"own_tab": false,
+						"id":3,
+						"nodes": [
+							{
+								"text": "账户余额",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":1,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=1"
+							},
+							{
+								"text": "点击量",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":2,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=2"
+							},
+							{
+								"text": "URL",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":3,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=3"
+							}
+						]
+					},
+					{
+						"text": "词类监控",
+						"icon": "",
+						"color": "#000000",
+						"backColor": "#FFFFFF",
+						"href": "#",
+						"tags": [],
+						"alarm_all": [],
+						"alarm_inactive": [],
+						"own_tab": false,
+						"id":4,
+						"nodes": [
+							{
+								"text": "展现量",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":4,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=4"
+							},
+							{
+								"text": "点击量",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":5,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=5"
+							},
+							{
+								"text": "消费",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":6,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=6"
+							}
+						]
+					}
+				]
+			},
+			{
+				"text": "CPS",
+				"icon": "",
+				"color": "#000000",
+				"backColor": "#FFFFFF",
+				"href": "#",
+				"tags": [],
+				"alarm_all": [],
+				"alarm_inactive": [],
+				"own_tab": false,
+				"id":5,
+				"nodes": [
+					{
+						"text": "Click服务监控",
+						"icon": "",
+						"color": "#000000",
+						"backColor": "#FFFFFF",
+						"href": "#",
+						"tags": [],
+						"alarm_all": [],
+						"alarm_inactive": [],
+						"own_tab": false,
+						"id":6,
+						"nodes": [
+							{
+								"text": "链接跳转",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":7,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=7"
+							},
+							{
+								"text": "cookie埋点",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":8,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=8"
+							}
+						]
+					},
+					{
+						"text": "cps Server监控",
+						"icon": "",
+						"color": "#000000",
+						"backColor": "#FFFFFF",
+						"href": "#",
+						"tags": [],
+						"alarm_all": [],
+						"alarm_inactive": [],
+						"own_tab": false,
+						"id":7,
+						"nodes": [
+							{
+								"text": "验券",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":9,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=9"
+							}
+						]
+					},
+					{
+						"text": "cps Push监控",
+						"icon": "",
+						"color": "#000000",
+						"backColor": "#FFFFFF",
+						"href": "#",
+						"tags": [],
+						"alarm_all": [],
+						"alarm_inactive": [],
+						"own_tab": false,
+						"id":8,
+						"nodes": [
+							{
+								"text": "push成功",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":10,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=10"
+							},
+							{
+								"text": "push失败",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":11,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=11"
+							}
+						]
+					}
+				]
+			},
+			{
+				"text": "知心",
+				"icon": "",
+				"color": "#000000",
+				"backColor": "#FFFFFF",
+				"href": "#",
+				"tags": [],
+				"alarm_all": [],
+				"alarm_inactive": [],
+				"own_tab": false,
+				"id":9,
+				"nodes": [
+					{
+						"text": "性能指标",
+						"icon": "",
+						"color": "#000000",
+						"backColor": "#FFFFFF",
+						"href": "#",
+						"tags": [],
+						"alarm_all": [],
+						"alarm_inactive": [],
+						"own_tab": false,
+						"id":10,
+						"nodes": [
+							{
+								"text": "延迟统计",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":12,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=12"
+							},
+							{
+								"text": "流量统计",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":13,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=13"
+							},
+							{
+								"text": "异常统计",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":14,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=14"
+							}
+						]
+					}
+				]
+			},
+			{
+				"text": "阿拉丁",
+				"icon": "",
+				"color": "#000000",
+				"backColor": "#FFFFFF",
+				"href": "#",
+				"tags": [],
+				"alarm_all": [],
+				"alarm_inactive": [],
+				"own_tab": false,
+				"id":11,
+				"nodes": [
+					{
+						"text": "性能指标",
+						"icon": "",
+						"color": "#000000",
+						"backColor": "#FFFFFF",
+						"href": "#",
+						"tags": [],
+						"alarm_all": [],
+						"alarm_inactive": [],
+						"own_tab": false,
+						"id":12,
+						"nodes": [
+							{
+								"text": "延迟统计",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":15,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=15"
+							},
+							{
+								"text": "流量统计",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":16,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=16"
+							},
+							{
+								"text": "异常统计",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":17,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=17"
+							}
+						]
+					},
+					{
+						"text": "页面监控",
+						"icon": "",
+						"color": "#000000",
+						"backColor": "#FFFFFF",
+						"href": "#",
+						"tags": [],
+						"alarm_all": [],
+						"alarm_inactive": [],
+						"own_tab": false,
+						"id":13,
+						"nodes": [
+							{
+								"text": "附近团购",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":18,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=18"
+							}
+						]
+					}
+				]
+			},
+			{
+				"text": "SEO",
+				"icon": "",
+				"color": "#000000",
+				"backColor": "#FFFFFF",
+				"href": "#",
+				"tags": [],
+				"alarm_all": [],
+				"alarm_inactive": [],
+				"own_tab": false,
+				"id":14,
+				"nodes": [
+					{
+						"text": "接口监控",
+						"icon": "",
+						"color": "#000000",
+						"backColor": "#FFFFFF",
+						"href": "#",
+						"tags": [],
+						"alarm_all": [],
+						"alarm_inactive": [],
+						"own_tab": false,
+						"id":15,
+						"nodes": [
+							{
+								"text": "TSM接口",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":19,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=19"
+							}
+						]
+					}
+				]
+			},
+			{
+				"text": "新首页",
+				"icon": "",
+				"color": "#000000",
+				"backColor": "#FFFFFF",
+				"href": "#",
+				"tags": [],
+				"alarm_all": [],
+				"alarm_inactive": [],
+				"own_tab": false,
+				"id":16,
+				"nodes": [
+					{
+						"text": "接口监控",
+						"icon": "",
+						"color": "#000000",
+						"backColor": "#FFFFFF",
+						"href": "#",
+						"tags": [],
+						"alarm_all": [],
+						"alarm_inactive": [],
+						"own_tab": false,
+						"id":17,
+						"nodes": [
+							{
+								"text": "查询接口",
+								"icon": "glyphicon glyphicon-star-empty",
+								"color": "#000000",
+								"backColor": "#FFFFFF",
+								"href": "#",
+								"tags": [],
+								"alarm_all": [],
+								"alarm_inactive": [],
+								"own_tab": true,
+								"id":20,
+								"monitorDataLink":"/queryMetricsDataChart/?metricsID=20"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+]

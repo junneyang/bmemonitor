@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;border: none;padding: 0px;margin: 0px;">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7;  IE=EDGE"/>
+	<meta content="导航页面" name="keywords" />
+	<meta content="导航页面" name="description" />
+	<meta name="generator" content="导航页面"/>
+	<title>导航页面</title>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap.min.bak.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap-theme.min.css" type="text/css"/>
+	<!--<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/media/css/jquery.dataTables.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/extensions/TableTools/css/dataTables.tableTools.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/extensions/Editor-1.3.3/css/dataTables.editor.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/font-awesome.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/css/demo/nav/docs.min.css" type="text/css"/>-->
+	<link rel="stylesheet" href="/static/js/model/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-table-master/dist/bootstrap-table.min.css" type="text/css"/>
+	<style type="text/css">
+		.form-control {
+			height: 28px;
+		}
+		.keep-open {
+			height: 28px;
+		}
+		div.bootstrap-table > div.fixed-table-toolbar > div.columns.columns-right.btn-group.pull-right > div > button {
+			height: 28px;
+		}
+		div.fixed-table-pagination > div.pull-left.pagination-detail > span.page-list {
+			display: inline-block !important;
+		}
+		div.fixed-table-container > div.fixed-table-pagination > div.pull-right.pagination {
+			display: inline-block !important;
+		}
+		.fixed-table-container {
+			border: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<!--<div class="container-fluid">
+			<div class="filter">
+				<label class="col-sm-1 control-label" for="datetimepicker1" style="float:left; margin-top: 13px;">日期 : </label>
+				<div class="col-sm-3" style="float:left; margin-top: 5px;">
+					<div class='input-group date' id='datetimepicker1'>
+						<input type='text' class="form-control" />
+						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+					</div>
+				</div>
+				<label class="col-sm-1 control-label" for="formGroupInputLarge" style="float:left; margin-top: 13px;">账户 : </label>
+				<div class="col-sm-3" style="float:left; margin-top: 5px;">
+					<select class="form-control" id="id_account_select">
+						<option selected="selected" value="NULL">请选择账户</option>
+					</select>
+				</div>
+				<div class="col-sm-1" style="float:left; margin-top: 5px;">
+					<a type="button" class="btn btn-info" href="javascript:queryAccountInfoChart();" role="button">查看</a>
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+		<div class="row placeholders  text-center" style="min-height:400px;margin-top:10px;">
+			<div class="col-xs-12 col-sm-12 placeholder">
+				<div id="container_account_clickrate">
+					<div id="alarmTrendLoading" class="text-center" style="display:none;margin-top:0px;"><img src="/static/loading.gif" class="img-responsive center-block" alt="Monitor Tree"/><span class="text-muted">加载中...</span></div>
+				</div>
+			</div>
+		</div>-->
+		<div class="container-fluid" style="margin-top:10px;" id="id_div_tbl_url"><!--width:500px;-->
+			<!--<div id="toolbar" class="btn-group">
+				<button type="button" class="btn btn-default">
+					<i class="glyphicon glyphicon-plus"></i>
+				</button>
+				<button type="button" class="btn btn-default">
+					<i class="glyphicon glyphicon-heart"></i>
+				</button>
+				<button type="button" class="btn btn-default">
+					<i class="glyphicon glyphicon-trash"></i>
+				</button>
+			</div>-->
+			<table id="url_tbl_url" data-toggle="table" 
+				data-url="/queryUrlDetailInfo/?urldataid={{urldataid}}" 
+				data-classes="table table-hover table-condensed" 
+				data-striped="true" 
+				data-row-style="rowStyle" 
+				data-sort-name="id" 
+				data-sort-order="desc" 
+				data-show-header="true" 
+				data-query-params-type="limit" 
+				data-show-pagination-switch="true" 
+				data-pagination="true" 
+				data-smart-display="true"
+				data-side-pagination="server" 
+				data-page-number="1" 
+				data-page-size="5" 
+				data-page-list="[5, 10, 20, 50, 100]" 
+				data-search="true" 
+				data-show-refresh="true" 
+				data-show-toggle="true" 
+				data-show-columns="true" 
+				data-click-to-select="true" 
+				data-select-item-name="myRadioName" 
+				data-single-select="true" 
+				data-toolbar="#toolbar" >
+				<!--data-height="200"-->
+				<thead>
+					<tr>
+						<th data-field="id" data-sortable="true" data-halign="center" data-align="left">id</th>
+						<th data-field="accountname" data-sortable="true" data-halign="center" data-align="left">accountname</th>
+						<th data-field="plan" data-sortable="true" data-halign="center" data-align="left">plan</th>
+						<th data-field="cell" data-sortable="true" data-halign="center" data-align="left">cell</th>
+						<th data-field="keyword" data-sortable="true" data-halign="center" data-align="left">keyword</th>
+						<th data-field="discription" data-sortable="true" data-halign="center" data-align="left">discription</th>
+						<th data-field="url" data-sortable="true" data-halign="center" data-align="left">url</th>
+						<th data-field="pc_mobile" data-sortable="true" data-halign="center" data-align="left">pc_mobile</th>
+						<th data-field="timepoint" data-sortable="true" data-halign="center" data-align="left">timepoint</th>
+						<!--<th data-field="operation" data-halign="center" data-align="center" data-formatter="operationFormatter" data-visible="false">Operation</th>-->
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+	<script src="/static/js/jquery-1.11.2.min.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script>
+	<!--<script src="/static/js/model/bootstrap-treeview-master/bootstrap-treeview-master/dist/bootstrap-treeview.min.js"></script>-->
+	<script src="/static/js/model/Highcharts-4.0.4/js/highcharts.js"></script>
+	<!--<script src="/static/js/model/DataTables-1.10.4-trial/media/js/jquery.dataTables.min.js"></script>
+	<script src="/static/js/model/DataTables-1.10.4-trial/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+	<script src="/static/js/model/DataTables-1.10.4-trial/extensions/Editor-1.3.3/js/dataTables.editor.min.js"></script>
+	<script src="/static/js/model/jquery-validation-1.13.1/dist/jquery.validate.min.js"></script>-->
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/docs.min.js"></script>
+	<script src="/static/js/model/moment-develop/min/moment-with-locales.min.js"></script>
+	<script src="/static/js/model/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="/static/js/model/bootstrap-table-master/dist/bootstrap-table.min.js"></script>
+	<script src="/static/js/model/bootstrap-table-master/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script type="text/javascript">
+		/**********************************************************************************************
+		*****账号下拉列表初始化
+		**********************************************************************************************/
+		//表格行style设置
+		function rowStyle(row, index) {
+			var classes = ['active', 'success', 'info', 'warning', 'danger'];
+
+			if (index % 2 === 0 && index / 2 < classes.length) {
+				return {
+					classes: classes[index / 2]
+				};
+			}
+			return {};
+		}
+		//表格列data设置
+		function operationFormatter(value) {
+			//return '<a href="#"><i class="glyphicon glyphicon-cutlery"></i>查看</a> <a href="#"><i class="glyphicon glyphicon-cutlery"></i>修改</a>';
+			//return '<i class="glyphicon glyphicon-cutlery"></i> ' ;//+ value;
+			return '<a href="javascript:relateURL(' + value + ')"><i class="glyphicon glyphicon-search"></i>查看</a>';
+		}
+		//表格index设置
+		function runningFormatter(value, row, index) {
+			return index;
+		}
+		//表格复选设置
+		function stateFormatter(value, row, index) {
+			if (index === 2) {
+				return {
+					disabled: true
+				};
+			}
+			if (index === 0) {
+				return {
+					disabled: true,
+					checked: true
+				}
+			}
+			return value;
+		}
+		//表格分页查询设置
+		function queryParams() {
+			return {
+				limit: 10,
+				offset: 0,
+				//search: 
+				sort: 'name',
+				order: 'desc'
+			};
+		}
+		//relateURL查询
+		function relateURL(value) {
+			//alert(value);
+			//$('#id_div_tbl').empty();
+			window.location.href= "/queryUrlDetail/?urldataid=" + value;
+		}
+		/*
+		$(document).ready(function() {
+			$('.page-list').css('display','inline-block'); 
+			$('.pagination').css('display','inline-block'); 
+			$('.page-list').css({visibility,"visible"});
+			$('.pagination').css({visibility,"visible"});
+		});*/
+		/*$(document).ready(function() {
+			$('#datetimepicker1').datetimepicker({
+				format: 'YYYY-MM-DD',
+				useCurrent: true,
+				calendarWeeks: true,
+				showTodayButton: true,
+				showClear: true
+			});
+		});
+		$(document).ready(function() {
+			initAccountList();
+		});*/
+		function initAccountList() {
+			$.when(queryAccounts()).done(function(data){
+				$.each(data,function(n,value) {  
+					$("#id_account_select").append('<option value="' + value + '">' + value + '</option>');
+				});
+			});
+		}
+		function queryAccounts() {
+			var metricsID = parseRequestURL("metricsID");
+			//alert(metricsID);
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/queryAccounts/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				data: {metricsID:metricsID},
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+		/**********************************************************************************************
+		*****账户点击率监控曲线
+		**********************************************************************************************/
+		function queryAccountInfoChart() {
+			var date = $("#datetimepicker1 input").val();
+			alert(date);
+			var account = $("#id_account_select option:selected").val();
+			if(account == "NULL") {
+				alert("请选择查询账号");
+				return;
+			}
+			var categories = new Array();
+			var data = new Array();
+			data[0] = new Array();
+			data[1] = new Array();
+			data[2] = new Array();
+			data[3] = new Array();
+			$.each(accountInfo,function(i,item) {
+				$.each(item,function(j,itemitem) {  
+					if(itemitem.accountName == account) {
+						categories.push(itemitem.datetime);
+						data[0].push(Number(itemitem.clickrate[0]));
+						data[1].push(Number(itemitem.clickrate[1]));
+						data[2].push(Number(itemitem.clickrate[2]));
+						data[3].push(Number(itemitem.clickrate[3]));
+					}
+				});
+			});
+			/*alert(data[0]);
+			alert(data[1]);
+			alert(data[2]);
+			alert(data[3]);*/
+			disStatChart(categories, data);
+		}
+		/*$(document).ready(function() {
+			initAlarmTrendChart();
+		});
+		function initAlarmTrendChart(){
+			$('#alarmTrendLoading').show();
+			$.when(queryAlarmTrendData()).done(function(data){
+				$('#alarmTrendLoading').hide();
+				disAlarmTrendChart(data.date, data.data);
+			});
+		}
+		function queryAlarmTrendData() {
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/queryAlarmDayperiod/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}*/
+		function disStatChart(categories, data) {
+			$('#container_account_clickrate').highcharts({
+				chart: {
+					type: 'column'
+				},
+				title: {
+					text: '账户点击率监控曲线'
+				},
+				subtitle: {
+					text: '今天-前一周-前两周-前三周'
+				},
+				credits: { 
+					enabled: false   //右下角不显示LOGO 
+				}, 
+				xAxis: {
+					categories: categories
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: '次数/次'
+					}
+				},
+				tooltip: {
+					pointFormat: '<b>{series.name} : {point.y}</b>次 ',
+					shared: true,
+					useHTML: true
+				},
+				exporting: {
+					enabled: true  //设置导出按钮不可用
+				},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0
+					}
+				},
+				series: [{
+					name: '今天',
+					data: data[0]
+
+				}, {
+					name: '前一周',
+					data: data[1]
+
+				}, {
+					name: '前两周',
+					data: data[2]
+
+				}, {
+					name: '前三周',
+					data: data[3]
+
+				}]
+			});
+		}
+		function parseRequestURL(paras) {
+			var url = location.href;
+			var paraString = url.substring(url.indexOf("?")+1,url.length).split("&"); 
+			var paraObj = {} 
+			for (i=0; j=paraString[i]; i++){ 
+				paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length); 
+			} 
+			var returnValue = paraObj[paras.toLowerCase()]; 
+			if(typeof(returnValue)=="undefined"){ 
+				return ""; 
+			}else{ 
+				return returnValue; 
+			} 
+		}
+	</script>
+</body>
+</html>
+

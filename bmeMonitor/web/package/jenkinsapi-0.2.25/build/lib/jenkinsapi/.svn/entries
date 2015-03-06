@@ -1,7 +1,7 @@
 10
 
 dir
-212829
+236788
 https://svn.baidu.com/myspace/lbs/bmeqa/bmeMonitor/web/package/jenkinsapi-0.2.25/build/lib/jenkinsapi
 https://svn.baidu.com/myspace
 
@@ -25,108 +25,6 @@ chengyunlai
 
 
 c4ccc3fd-b13d-49bf-a705-f618d8f4424a
-
-result.py
-file
-
-
-
-
-2015-01-11T16:22:45.000000Z
-c1401bc0121ffa6d4c270116338c57dc
-2015-01-04T08:25:47.419905Z
-209492
-chengyunlai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-617
-
-executors.py
-file
-
-
-
-
-2015-01-11T16:22:45.000000Z
-51e68ba253edcaecede4bd03925410ee
-2015-01-04T08:25:47.419905Z
-209492
-chengyunlai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1121
-
-plugins.py
-file
-
-
-
-
-2015-01-11T16:22:45.000000Z
-7b839732d8a100d1549fd655cd43e0b6
-2015-01-04T08:25:47.419905Z
-209492
-chengyunlai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1671
 
 queue.py
 file
@@ -298,14 +196,14 @@ chengyunlai
 
 3042
 
-jobs.py
+views.py
 file
 
 
 
 
 2015-01-11T16:22:45.000000Z
-990289b17584771d18549344013088ef
+e4ccf5f159c6bb556a3e6bde6f390c57
 2015-01-04T08:25:47.419905Z
 209492
 chengyunlai
@@ -330,7 +228,7 @@ chengyunlai
 
 
 
-4849
+3215
 
 artifact.py
 file
@@ -366,14 +264,14 @@ chengyunlai
 
 4089
 
-views.py
+jobs.py
 file
 
 
 
 
 2015-01-11T16:22:45.000000Z
-e4ccf5f159c6bb556a3e6bde6f390c57
+990289b17584771d18549344013088ef
 2015-01-04T08:25:47.419905Z
 209492
 chengyunlai
@@ -398,41 +296,10 @@ chengyunlai
 
 
 
-3215
+4849
 
-executor.py
-file
-
-
-
-
-2015-01-11T16:22:45.000000Z
-19d3e13c4b5eb179b32a62fd708da9c1
-2015-01-04T08:25:47.419905Z
-209492
-chengyunlai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1742
+command_line
+dir
 
 plugin.py
 file
@@ -468,8 +335,39 @@ chengyunlai
 
 509
 
-command_line
-dir
+executor.py
+file
+
+
+
+
+2015-01-11T16:22:45.000000Z
+19d3e13c4b5eb179b32a62fd708da9c1
+2015-01-04T08:25:47.419905Z
+209492
+chengyunlai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1742
 
 build.py
 file
@@ -881,4 +779,106 @@ chengyunlai
 
 
 416
+
+result.py
+file
+
+
+
+
+2015-01-11T16:22:45.000000Z
+c1401bc0121ffa6d4c270116338c57dc
+2015-01-04T08:25:47.419905Z
+209492
+chengyunlai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+617
+
+plugins.py
+file
+
+
+
+
+2015-01-11T16:22:45.000000Z
+7b839732d8a100d1549fd655cd43e0b6
+2015-01-04T08:25:47.419905Z
+209492
+chengyunlai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1671
+
+executors.py
+file
+
+
+
+
+2015-01-11T16:22:45.000000Z
+51e68ba253edcaecede4bd03925410ee
+2015-01-04T08:25:47.419905Z
+209492
+chengyunlai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1121
 

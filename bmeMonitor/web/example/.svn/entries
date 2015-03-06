@@ -1,7 +1,7 @@
 10
 
 dir
-212829
+236788
 https://svn.baidu.com/myspace/lbs/bmeqa/bmeMonitor/web/example
 https://svn.baidu.com/myspace
 
@@ -25,40 +25,6 @@ chengyunlai
 
 
 c4ccc3fd-b13d-49bf-a705-f618d8f4424a
-
-traditional_testCase.py
-file
-
-
-
-
-2015-01-11T16:22:43.000000Z
-bc55e1319ebbfa67b9ea1d3f584bf236
-2015-01-04T08:25:47.419905Z
-209492
-chengyunlai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1173
 
 helloworld.html
 file
@@ -161,4 +127,38 @@ chengyunlai
 
 
 1226
+
+traditional_testCase.py
+file
+
+
+
+
+2015-01-11T16:22:43.000000Z
+bc55e1319ebbfa67b9ea1d3f584bf236
+2015-01-04T08:25:47.419905Z
+209492
+chengyunlai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1173
 

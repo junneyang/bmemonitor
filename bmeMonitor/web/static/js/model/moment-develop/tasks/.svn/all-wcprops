@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/tasks
+END
+bump_version.js
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/tasks/bump_version.js
+END
+size.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/tasks/size.js
+END
+check_sauce_creds.js
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/tasks/check_sauce_creds.js
+END
+embed_locales.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/tasks/embed_locales.js
+END
+zones.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/tasks/zones.js
+END
+history.js
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/tasks/history.js
+END
+component.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/tasks/component.js
+END
+nuget.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/moment-develop/tasks/nuget.js
+END

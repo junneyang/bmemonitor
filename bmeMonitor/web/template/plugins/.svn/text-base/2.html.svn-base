@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%;border: none;padding: 0px;margin: 0px;">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7;  IE=EDGE"/>
+	<meta content="导航页面" name="keywords" />
+	<meta content="导航页面" name="description" />
+	<meta name="generator" content="导航页面"/>
+	<title>导航页面</title>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/bootstrap-theme.min.css" type="text/css"/>
+	<!--<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/media/css/jquery.dataTables.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/extensions/TableTools/css/dataTables.tableTools.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/DataTables-1.10.4-trial/extensions/Editor-1.3.3/css/dataTables.editor.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-3.3.1-dist/dist/css/font-awesome.css" type="text/css"/>-->
+	<link rel="stylesheet" href="/static/css/demo/nav/docs.min.css" type="text/css"/>
+	<link rel="stylesheet" href="/static/js/model/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.min.css" type="text/css"/>
+	<style type="text/css">
+		/*.filter {
+			background-image: url("/static/pannel_back.gif");
+			background-repeat: repeat-x;
+			background-size:auto 100%;
+			margin-top: 10px;
+			height:45px;
+		}*/
+		.filter {
+			/*background-image: url("/static/pannel_back.gif");
+			background-repeat: repeat-x;
+			background-size:auto 100%;
+			margin-top: 10px;
+			height:45px;*/
+			margin-top: 10px;
+			padding: 5px;
+			border: 1px solid #eee;
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="container-fluid">
+			<!--<div class="filter">
+				<label class="col-sm-1 control-label" for="formGroupInputLarge" style="float:left; margin-top: 13px;">账户 : </label>
+				<div class="col-sm-3" style="float:left; margin-top: 5px;">
+					<select class="form-control" id="id_account_select">
+						<option selected="selected" value="NULL">请选择账户</option>
+					</select>
+				</div>
+				<div class="col-sm-1" style="float:left; margin-top: 5px;">
+					<a type="button" class="btn btn-info" href="javascript:queryAccountInfoChart();" role="button">查看</a>
+				</div>
+				<div style="clear:both;"></div>
+			</div>-->
+			<div class="filter">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">时间范围/小时</label>
+						<div class="col-sm-3">
+							<div class='input-group date' id='datetimepicker1'>
+								<input type='text' class="form-control" id="startdate"/>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+							</div>
+						</div>
+						<label class="col-xs-1 control-label" for="formGroupInputLarge" style="text-align:center;font-weight:normal;">----</label>
+						<div class="col-sm-3">
+							<div class='input-group date' id='datetimepicker2'>
+								<input type='text' class="form-control" id="enddate"/>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="formGroupInputLarge" style="float:left; margin-top: 13px;">账户</label>
+						<div class="col-sm-7" style="float:left; margin-top: 5px;">
+							<select class="form-control" id="id_account_select">
+								<option selected="selected" value="NULL">请选择账户</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-default" onClick="return queryAccountClickChart()">查询一下</button>
+						</div>
+					</div>
+				</form>
+				<!--<label class="col-sm-1 control-label" for="datetimepicker1" style="float:left; margin-top: 13px;">时间 : </label>
+				<div class="col-sm-3" style="float:left; margin-top: 5px;">
+					<div class='input-group date' id='datetimepicker1'>
+						<input type='text' class="form-control" />
+						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+					</div>
+				</div>
+				<label class="col-sm-1 control-label" for="formGroupInputLarge" style="float:auto; margin-top: 13px;">--</label>
+				<div class="col-sm-3" style="float:left; margin-top: 5px;">
+					<div class='input-group date' id='datetimepicker2'>
+						<input type='text' class="form-control" />
+						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+					</div>
+				</div>
+				<div class="col-sm-3" style="float:left; margin-top: 5px;">
+					<select class="form-control" id="id_account_select">
+						<option selected="selected" value="NULL">请选择账户</option>
+					</select>
+				</div>
+				<div class="col-sm-1" style="float:left; margin-top: 5px;">
+					<a type="button" class="btn btn-info" href="javascript:queryAccountInfoChart();" role="button">查看</a>
+				</div>
+				<div style="clear:both;"></div>-->
+			</div>
+		</div>
+		<div class="row placeholders  text-center" style="min-height:400px;margin-top:10px;">
+			<div class="col-xs-12 col-sm-12 placeholder">
+				<!--<img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail"/>-->
+				<div id="container_account_clickrate">
+					<div id="alarmTrendLoading" class="text-center" style="display:none;margin-top:0px;"><img src="/static/loading.gif" class="img-responsive center-block" alt="Monitor Tree"/><span class="text-muted">加载中...</span></div>
+				</div>
+				<!--<h4>Label</h4>
+				<span class="text-muted">Something else</span>-->
+			</div>
+		</div>
+	</div>
+	<script src="/static/js/jquery-1.11.2.min.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/bootstrap.min.js"></script>
+	<script src="/static/js/model/bootstrap-treeview-master/bootstrap-treeview-master/dist/bootstrap-treeview.min.js"></script>
+	<script src="/static/js/model/Highcharts-4.0.4/js/highcharts.js"></script>
+	<script src="/static/js/model/Highcharts-4.0.4/js/modules/exporting.js"></script>
+	<script src="/static/js/model/DataTables-1.10.4-trial/media/js/jquery.dataTables.min.js"></script>
+	<!--<script src="/static/js/model/DataTables-1.10.4-trial/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+	<script src="/static/js/model/DataTables-1.10.4-trial/extensions/Editor-1.3.3/js/dataTables.editor.min.js"></script>-->
+	<script src="/static/js/model/jquery-validation-1.13.1/dist/jquery.validate.min.js"></script>
+	<script src="/static/js/model/bootstrap-3.3.1-dist/dist/js/docs.min.js"></script>
+	<script src="/static/js/model/moment-develop/min/moment-with-locales.min.js"></script>
+	<script src="/static/js/model/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript">
+		/**********************************************************************************************
+		*****时间控件初始化
+		**********************************************************************************************/
+		$(document).ready(function() {
+			$('#datetimepicker1').datetimepicker({
+				format: 'YYYY-MM-DD HH:00:00',
+				useCurrent: true,
+				calendarWeeks: true,
+				showTodayButton: true,
+				showClear: true
+			});
+			$('#datetimepicker2').datetimepicker({
+				format: 'YYYY-MM-DD HH:00:00',
+				useCurrent: true,
+				calendarWeeks: true,
+				showTodayButton: true,
+				showClear: true
+			});
+		});
+		/**********************************************************************************************
+		*****账号下拉列表初始化
+		**********************************************************************************************/
+		$(document).ready(function() {
+			initAccountList();
+		});
+		function initAccountList() {
+			$.when(queryAccountList_Click()).done(function(data){
+				$.each(data,function(n,value) {
+					$("#id_account_select").append('<option value="' + value + '">' + value + '</option>');
+				});
+			});
+		}
+		function queryAccountList_Click() {
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/queryAccountList_Click/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				//data: {metricsID:metricsID,DataLength:accountInfoLength},
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+		/**********************************************************************************************
+		*****账户点击率监控曲线
+		**********************************************************************************************/
+		function queryAccountClickChart() {
+			var startdate = $('#startdate').val();
+			var enddate = $('#enddate').val();
+			if(startdate == "" || enddate == "") {
+				alert("请选择时间范围");
+				return false;
+			} 
+			var tmp_startdate = new Date(startdate.replace(/-/g, "/"));
+			var tmp_enddate = new Date(enddate.replace(/-/g, "/"));
+			if(tmp_startdate > tmp_enddate) {
+				alert("结束时间不能小于开始时间");
+				return false;
+			}
+			var account = $("#id_account_select option:selected").val();
+			if(account == "NULL") {
+				alert("请选择查询账号");
+				return false;
+			}
+			$.when(queryAccountClick(startdate, enddate, account)).done(function(data){
+				disStatChart(data.cat, data.data0, data.data1, data.data2, data.data3);
+			});
+			return false;
+		}
+		function queryAccountClick(startdate, enddate, account) {
+			var defer = $.Deferred();
+			$.ajax({
+				type: "POST",
+				url : '/queryAccountClick/',
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				data:{startdate:startdate, enddate:enddate, account:account, metricsID:2},
+				//async : false,
+				success: function(data){
+					defer.resolve(data)
+				}
+			});
+			return defer.promise();
+		}
+		function disStatChart(categories, data0, data1, data2, data3) {
+			var xLen = categories.length;
+			var maxLabelNum = 15; //x轴上最多显示的label个数，过多就会挤在一起
+			var step = Math.round(xLen / maxLabelNum) < 1 ? 1 : Math.round(xLen / maxLabelNum);
+			$('#container_account_clickrate').highcharts({
+				chart: {
+					type: 'column'
+				},
+				title: {
+					text: '账户点击量监控曲线',
+					style: {
+						'fontFamily':'微软雅黑'
+					}
+				},
+				subtitle: {
+					text: '今天-前一周-前两周-前三周',
+					style: {
+						'fontFamily':'微软雅黑'
+					}
+				},
+				credits: { 
+					enabled: false   //右下角不显示LOGO 
+				}, 
+				xAxis: {
+					categories: categories,
+					tickInterval: step,
+					title: {
+						text: '时间',
+						style: {
+							'fontFamily':'微软雅黑'
+						}
+					},
+					labels: {
+						rotation: -45
+					}
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: '次数/次',
+						style: {
+							'fontFamily':'微软雅黑'
+						}
+					}
+				},
+				tooltip: {
+					pointFormat: '<b>{series.name} : {point.y}</b>次 ',
+					shared: true,
+					useHTML: true
+				},
+				exporting: {
+					enabled: true  //设置导出按钮不可用
+				},
+				plotOptions: {
+					column: {
+						pointPadding: 0.2,
+						borderWidth: 0
+					}
+				},
+				series: [{
+					name: '今天',
+					data: data0
+
+				}, {
+					name: '前一周',
+					data: data1
+
+				}, {
+					name: '前两周',
+					data: data2
+
+				}, {
+					name: '前三周',
+					data: data3
+
+				}]
+			});
+		}
+		function parseRequestURL(paras) {
+			var url = location.href;
+			var paraString = url.substring(url.indexOf("?")+1,url.length).split("&"); 
+			var paraObj = {} 
+			for (i=0; j=paraString[i]; i++){ 
+				paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length); 
+			} 
+			var returnValue = paraObj[paras.toLowerCase()]; 
+			if(typeof(returnValue)=="undefined"){ 
+				return ""; 
+			}else{ 
+				return returnValue; 
+			} 
+		}
+	</script>
+</body>
+</html>
+

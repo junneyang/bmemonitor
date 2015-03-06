@@ -10,15 +10,17 @@ import sys
 import os
 import time
 import json
+import traceback
 
-
-from common.logLib import *
-from common.mysqlLib import *
-from common.cmdLib import *
+from com.logLib import *
+from com.mysqlLib import *
+from com.cmdLib import *
+from com.confLib import *
+from com.jsonLib import *
 
 import urlparse
 
-defaultport=8888
+defaultport=8868
 import socket
 hostname=socket.gethostname()
 hostname=socket.gethostbyname(hostname)
@@ -38,6 +40,7 @@ CAS_SETTINGS = {
 	'version' : 2
 }
 
+log_init("./log/bmeMonitor.log")
 
 ########################################
 class authenticateBase(tornado.web.RequestHandler):
@@ -69,7 +72,7 @@ class LoginHandler(authenticateBase):
         userid=self.get_upps_user()
         if(userid):
             self.set_secure_cookie("user",userid)
-            self.render("bmeMonitor.html",usrname=userid)
+            self.render("demo/monitor.html",usrname=userid)
         else:
             redirect_url = CAS_SETTINGS[ 'cas_server' ] + '/login?service=' + CAS_SETTINGS[ 'service_url' ]
             self.redirect( redirect_url )
@@ -81,22 +84,1068 @@ class LogoutHandler(tornado.web.RequestHandler):
         redirect_url = CAS_SETTINGS[ 'cas_server' ] + '/logout'
         self.redirect( redirect_url )
 ########################################
-class test(authenticateBase):
+class nav(authenticateBase):
     def get(self):
         userid=self.get_cookie_user()
-        testtype=pjt_id=self.get_argument("testtype").encode('utf-8')
         if(userid):
-            if(testtype == "testpjt"):
-                self.render("./test/test.testpjt.html",usrname=userid)
-            elif(testtype == "testdown"):
-                self.render("./test/test.testdown.html",usrname=userid)
-            elif(testtype == "addtesttask"):
-                self.render("./test/test.addtesttask.html",usrname=userid)
-            else:
-                pass
+            self.render("./demo/nav.html", usrname=userid)
         else:
             redirect_url=CAS_SETTINGS[ 'cas_server' ] + '/login?service=' + CAS_SETTINGS[ 'service_url' ]
             self.redirect(redirect_url)
+class monitor(authenticateBase):
+    def get(self):
+        userid=self.get_cookie_user()
+        if(userid):
+            self.render("./demo/monitor.html", usrname=userid)
+        else:
+            redirect_url=CAS_SETTINGS[ 'cas_server' ] + '/login?service=' + CAS_SETTINGS[ 'service_url' ]
+            self.redirect(redirect_url)
+class helpcls(authenticateBase):
+    def get(self):
+        userid=self.get_cookie_user()
+        if(userid):
+            self.render("./demo/help.html", usrname=userid)
+        else:
+            redirect_url=CAS_SETTINGS[ 'cas_server' ] + '/login?service=' + CAS_SETTINGS[ 'service_url' ]
+            self.redirect(redirect_url)
+class querytreedata(authenticateBase):
+    def post(self):
+        monitor_tree_data = parse_conf("./conf/monitor.conf")
+        mysql = mysqlLib()
+        param = {}
+        alarmlist = mysql.query_tbl_alarmobj(param)
+        #print alarmlist
+        alarm_stat_all = {}
+        alarm_stat_inactive = {}
+        alarm_stat_active = {}
+        for item in alarmlist:
+            if(int(item[6]) == 0):
+                alarmo_monitorMetrics_id = int(item[4])
+                if(alarmo_monitorMetrics_id not in alarm_stat_active):
+                    alarm_stat_active[alarmo_monitorMetrics_id] = 1
+                else:
+                    alarm_stat_active[alarmo_monitorMetrics_id] += 1
+                if(alarmo_monitorMetrics_id not in alarm_stat_all):
+                    alarm_stat_all[alarmo_monitorMetrics_id] = 1
+                else:
+                    alarm_stat_all[alarmo_monitorMetrics_id] += 1
+            elif(int(item[6]) == 1):
+                alarmo_monitorMetrics_id = int(item[4])
+                if(alarmo_monitorMetrics_id not in alarm_stat_inactive):
+                    alarm_stat_inactive[alarmo_monitorMetrics_id] = 1
+                else:
+                    alarm_stat_inactive[alarmo_monitorMetrics_id] += 1
+                if(alarmo_monitorMetrics_id not in alarm_stat_all):
+                    alarm_stat_all[alarmo_monitorMetrics_id] = 1
+                else:
+                    alarm_stat_all[alarmo_monitorMetrics_id] += 1
+
+        #i,j,k = searchNode(monitor_tree_data, 1)
+        #print i,j,k
+        for item in alarm_stat_active:
+            i,j,k = searchNode(monitor_tree_data, int(item))
+            #BME告警统计
+            if(monitor_tree_data[0]['tags'] == []):
+                monitor_tree_data[0]['tags'].append(str(alarm_stat_active[item]))
+            else:
+                tmp = int(monitor_tree_data[0]['tags'][0])
+                monitor_tree_data[0]['tags'][0] = str(tmp + alarm_stat_active[item])
+            #二级菜单如SEM告警统计
+            if(monitor_tree_data[0]['nodes'][i]['tags'] == []):
+                monitor_tree_data[0]['nodes'][i]['tags'].append(str(alarm_stat_active[item]))
+            else:
+                tmp = int(monitor_tree_data[0]['nodes'][i]['tags'][0])
+                monitor_tree_data[0]['nodes'][i]['tags'][0] = str(tmp + alarm_stat_active[item])
+            #三级菜单如账户监控告警统计
+            if(monitor_tree_data[0]['nodes'][i]['nodes'][j]['tags'] == []):
+                monitor_tree_data[0]['nodes'][i]['nodes'][j]['tags'].append(str(alarm_stat_active[item]))
+            else:
+                tmp = int(monitor_tree_data[0]['nodes'][i]['nodes'][j]['tags'][0])
+                monitor_tree_data[0]['nodes'][i]['nodes'][j]['tags'][0] = str(tmp + alarm_stat_active[item])
+            #四级菜单如账户余额告警统计
+            if(monitor_tree_data[0]['nodes'][i]['nodes'][j]['nodes'][k]['tags'] == []):
+                monitor_tree_data[0]['nodes'][i]['nodes'][j]['nodes'][k]['tags'].append(str(alarm_stat_active[item]))
+            else:
+                tmp = int(monitor_tree_data[0]['nodes'][i]['nodes'][j]['nodes'][k]['tags'][0])
+                monitor_tree_data[0]['nodes'][i]['nodes'][j]['nodes'][k]['tags'][0] = str(tmp + alarm_stat_active[item])
+        for item in alarm_stat_all:
+            i,j,k = searchNode(monitor_tree_data, int(item))
+            #BME告警统计
+            if(monitor_tree_data[0]['alarm_all'] == []):
+                monitor_tree_data[0]['alarm_all'].append(str(alarm_stat_all[item]))
+            else:
+                tmp = int(monitor_tree_data[0]['alarm_all'][0])
+                monitor_tree_data[0]['alarm_all'][0] = str(tmp + alarm_stat_all[item])
+            #二级菜单如SEM告警统计
+            if(monitor_tree_data[0]['nodes'][i]['alarm_all'] == []):
+                monitor_tree_data[0]['nodes'][i]['alarm_all'].append(str(alarm_stat_all[item]))
+            else:
+                tmp = int(monitor_tree_data[0]['nodes'][i]['alarm_all'][0])
+                monitor_tree_data[0]['nodes'][i]['alarm_all'][0] = str(tmp + alarm_stat_all[item])
+            #三级菜单如账户监控告警统计
+            if(monitor_tree_data[0]['nodes'][i]['nodes'][j]['alarm_all'] == []):
+                monitor_tree_data[0]['nodes'][i]['nodes'][j]['alarm_all'].append(str(alarm_stat_all[item]))
+            else:
+                tmp = int(monitor_tree_data[0]['nodes'][i]['nodes'][j]['alarm_all'][0])
+                monitor_tree_data[0]['nodes'][i]['nodes'][j]['alarm_all'][0] = str(tmp + alarm_stat_all[item])
+            #四级菜单如账户余额告警统计
+            if(monitor_tree_data[0]['nodes'][i]['nodes'][j]['nodes'][k]['alarm_all'] == []):
+                monitor_tree_data[0]['nodes'][i]['nodes'][j]['nodes'][k]['alarm_all'].append(str(alarm_stat_all[item]))
+            else:
+                tmp = int(monitor_tree_data[0]['nodes'][i]['nodes'][j]['nodes'][k]['alarm_all'][0])
+                monitor_tree_data[0]['nodes'][i]['nodes'][j]['nodes'][k]['alarm_all'][0] = str(tmp + alarm_stat_all[item])
+        for item in alarm_stat_inactive:
+            i,j,k = searchNode(monitor_tree_data, int(item))
+            #BME告警统计
+            if(monitor_tree_data[0]['alarm_inactive'] == []):
+                monitor_tree_data[0]['alarm_inactive'].append(str(alarm_stat_inactive[item]))
+            else:
+                tmp = int(monitor_tree_data[0]['alarm_inactive'][0])
+                monitor_tree_data[0]['alarm_inactive'][0] = str(tmp + alarm_stat_inactive[item])
+            #二级菜单如SEM告警统计
+            if(monitor_tree_data[0]['nodes'][i]['alarm_inactive'] == []):
+                monitor_tree_data[0]['nodes'][i]['alarm_inactive'].append(str(alarm_stat_inactive[item]))
+            else:
+                tmp = int(monitor_tree_data[0]['nodes'][i]['alarm_inactive'][0])
+                monitor_tree_data[0]['nodes'][i]['alarm_inactive'][0] = str(tmp + alarm_stat_inactive[item])
+            #三级菜单如账户监控告警统计
+            if(monitor_tree_data[0]['nodes'][i]['nodes'][j]['alarm_inactive'] == []):
+                monitor_tree_data[0]['nodes'][i]['nodes'][j]['alarm_inactive'].append(str(alarm_stat_inactive[item]))
+            else:
+                tmp = int(monitor_tree_data[0]['nodes'][i]['nodes'][j]['alarm_inactive'][0])
+                monitor_tree_data[0]['nodes'][i]['nodes'][j]['alarm_inactive'][0] = str(tmp + alarm_stat_inactive[item])
+            #四级菜单如账户余额告警统计
+            if(monitor_tree_data[0]['nodes'][i]['nodes'][j]['nodes'][k]['alarm_inactive'] == []):
+                monitor_tree_data[0]['nodes'][i]['nodes'][j]['nodes'][k]['alarm_inactive'].append(str(alarm_stat_inactive[item]))
+            else:
+                tmp = int(monitor_tree_data[0]['nodes'][i]['nodes'][j]['nodes'][k]['alarm_inactive'][0])
+                monitor_tree_data[0]['nodes'][i]['nodes'][j]['nodes'][k]['alarm_inactive'][0] = str(tmp + alarm_stat_inactive[item])
+        #print monitor_tree_data
+        self.write(json.dumps(monitor_tree_data))
+
+class queryMonitorMetricsData(authenticateBase):
+    def post(self):
+        monitor_tree_data = parse_conf("./conf/monitor.conf")
+        MonitorMetricsData = queryMonitorMetrics(monitor_tree_data)
+        #print MonitorMetricsData
+        self.write(json.dumps(MonitorMetricsData))
+class queryAlarmDayperiod(authenticateBase):
+    def post(self):
+        dayperiod = 7
+        mysql = mysqlLib()
+        ret = mysql.query_alarm_dayperiod(dayperiod)
+        mysql.close()
+        #print ret
+        tmp_alarm_trend = {}
+        for item in ret:
+            tmp_alarm_trend[str(item[0])] = item[1]
+        #cutime=datetime.datetime.now().strftime("%y-%m-%d %H:%M:%S")
+        cutime = datetime.datetime.now().strftime("%Y-%m-%d")
+        cutime = datetime.datetime.strptime(cutime,"%Y-%m-%d")
+        startdate = cutime - datetime.timedelta(days=dayperiod)
+        tmp_alarm_trend_date = []
+        for i in xrange(dayperiod + 1):
+            day=startdate+datetime.timedelta(days=i)
+            day=day.strftime('%Y-%m-%d')
+            #print day
+            tmp_alarm_trend_date.append(day)
+            if(day not in tmp_alarm_trend):
+                tmp_alarm_trend[day] = 0
+
+        tmp_alarm_trend_cnt = []
+        for item in tmp_alarm_trend_date:
+            tmp_alarm_trend_cnt.append(tmp_alarm_trend[item])
+        alarm_trend = {"date":tmp_alarm_trend_date,"data":tmp_alarm_trend_cnt}
+        self.write(json.dumps(alarm_trend))
+class queryHistoryAlarm(authenticateBase):
+    def get(self):
+        try:
+            userid=self.get_cookie_user()
+            param={}
+            mysql=mysqlLib()
+            alarm_list=mysql.query_tbl_alarmobj(param)
+            mysql.close()
+
+            ret_dict=[]
+            for index,item in enumerate(alarm_list):
+                sub_ret_dict=[]
+                '''#id
+                sub_ret_dict.append(str(int(item[0])))
+                #alarmConf_id
+                sub_ret_dict.append(str(int(item[1])))
+                #monitorTask_id
+                sub_ret_dict.append(str(int(item[2])))
+                #monitorObj_id
+                sub_ret_dict.append(str(int(item[3])))
+                #monitorMetrics_id
+                sub_ret_dict.append(str(int(item[4])))
+                #description
+                sub_ret_dict.append(item[5])
+                #status
+                sub_ret_dict.append(str(int(item[6])))
+                #datetime
+                sub_ret_dict.append(str(item[7]))
+                #inactive_datetime
+                sub_ret_dict.append(str(item[8]))
+                #cause
+                sub_ret_dict.append(item[9])
+                #handleBy
+                sub_ret_dict.append(item[10])
+                #info
+                sub_ret_dict.append(item[11])'''
+                #id
+                sub_ret_dict.append(str(int(item[0])))
+                monitor_tree_data = parse_conf("./conf/monitor.conf")
+                i,j,k = searchNode(monitor_tree_data, int(item[4]))
+                metrics_name = monitor_tree_data[0]['nodes'][i]['nodes'][j]['nodes'][k]['text']
+                obj_name = monitor_tree_data[0]['nodes'][i]['nodes'][j]['text']
+                #monitorObj_id
+                #sub_ret_dict.append(str(int(item[3])))
+                sub_ret_dict.append(obj_name)
+                #monitorMetrics_id
+                #sub_ret_dict.append(str(int(item[4])))
+                sub_ret_dict.append(metrics_name)
+                #datetime
+                sub_ret_dict.append(str(item[7]))
+                #status
+                if(str(int(item[6])) == "0"):
+                    sub_ret_dict.append(u"活动态")
+                if(str(int(item[6])) == "1"):
+                    sub_ret_dict.append(u"已恢复")
+                #inactive_datetime
+                if(str(item[8]) == 'None'):
+                    sub_ret_dict.append("--")
+                else:
+                    sub_ret_dict.append(str(item[8]))
+                #handleBy
+                if(item[10] is None):
+                    sub_ret_dict.append("--")
+                else:
+                    sub_ret_dict.append(item[10])
+                cause = ""
+                #cause
+                if(item[9] is None):
+                    sub_ret_dict.append("--")
+                else:
+                    sub_ret_dict.append(item[9])
+                    cause = item[9]
+                sub_ret_dict.append("<a href='javascript:alarmDetail(\"" + str(int(item[0])) + "\")'>详情</a> " +
+                "<a href='javascript:initalarmUpdate(\"" + str(int(item[0])) + "\",\"" + str(int(item[6])) + "\",\"" + cause + "\",\"" + userid + "\")'>编辑</a>")
+                ret_dict.append(sub_ret_dict)
+                '''tmp_row = "row_" + str(index + 1)
+                sub_ret_dict={}
+                sub_ret_dict['DT_RowId'] = tmp_row
+                sub_ret_dict['alarm_id'] = str(int(item[0]))
+                sub_ret_dict['alarmConf_id'] = str(int(item[1]))
+                sub_ret_dict['monitorTask_id'] = str(int(item[2]))
+                sub_ret_dict['monitorObj_id'] = str(int(item[3]))
+                sub_ret_dict['monitorMetrics_id'] = str(int(item[4]))
+                sub_ret_dict['description'] = item[5]
+                sub_ret_dict['status'] = str(int(item[6]))
+                sub_ret_dict['datetime'] = str(item[7])
+                sub_ret_dict['inactive_datetime'] = str(item[8])
+                sub_ret_dict['cause'] = item[9]
+                sub_ret_dict['handleBy'] = item[10]
+                sub_ret_dict['info'] = item[11]
+                ret_dict.append(sub_ret_dict)'''
+            ret_info = {"data":ret_dict}
+            #print ret_info
+            self.write(json.dumps(ret_info))
+        except Exception as e:
+            logging.error(str(e))
+            logging.info(traceback.print_exc())
+class queryAlarmDetail(authenticateBase):
+    def get(self):
+        alarm_id = self.get_argument("alarm_id").encode('utf-8')
+        mysql = mysqlLib()
+        param = {"id":alarm_id}
+        ret = mysql.query_tbl_alarmobj(param)
+        mysql.close()
+        alarm_info = {"data": ret[0][5]}
+        self.write(json.dumps(alarm_info))
+class updateAlarmInfo(authenticateBase):
+    def post(self):
+        post_param=urlparse.parse_qs(self.request.body,True)
+        alarmID=post_param['alarmID'][0]
+        status_cu=post_param['status_cu'][0]
+        status=post_param['status'][0]
+        cause=post_param['cause'][0]
+        handby=post_param['handby'][0]
+        '''print alarmID
+        print status_cu
+        print status
+        print cause
+        print handby'''
+        param=(status,cause,handby,alarmID)
+        mysql=mysqlLib()
+        mysql.update_tbl_tbl_alarmobj_inactive_datetime_alarminfo(param)
+        if(status_cu == "0" and status == "1"):
+            cutime=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            param = (cutime, alarmID)
+            mysql.update_tbl_tbl_alarmobj_inactive_datetime(param)
+        mysql.close()
+        retcode = 0
+
+        '''param={"limit":limit,"offset":offset}
+        mysql=mysqlLib()
+        tasklist=mysql.query_task(param)
+
+        param={}
+        task_totalcnt=mysql.query_task_totalcnt(param)
+        mysql.close()'''
+
+        '''serverlist_info={}
+        ret_dict=[]
+        for index,item in enumerate(tasklist):
+            sub_ret_dict={}
+            sub_ret_dict['id']=str(int(item[0]))
+            sub_ret_dict['submit']=item[1]
+            sub_ret_dict['jenkinsurl']=item[2]
+            sub_ret_dict['jobname']=item[3]
+            sub_ret_dict['build_params']=item[4]
+            sub_ret_dict['status']=item[5]
+            sub_ret_dict['build_number']=item[6]
+            ret_dict.append(sub_ret_dict)
+        serverlist_info['ret_dict']=ret_dict'''
+        serverlist_info = {"retcode":retcode}
+        self.write(json.dumps(serverlist_info))
+class queryMetricsDataChart(authenticateBase):
+    def get(self):
+        userid=self.get_cookie_user()
+        metricsID = self.get_argument("metricsID").encode('utf-8')
+        if(userid):
+            self.render("./plugins/" + metricsID + ".html", usrname=userid)
+        else:
+            redirect_url=CAS_SETTINGS[ 'cas_server' ] + '/login?service=' + CAS_SETTINGS[ 'service_url' ]
+            self.redirect(redirect_url)
+
+class queryAccountList(authenticateBase):
+    def post(self):
+        mysql = mysqlLib()
+        param = ()
+        ret = mysql.query_account_name_list(param)
+        mysql.close()
+        account_list = []
+        json_arr = json.loads(ret[0][0])
+        for item in json_arr:
+            account_list.append(item['accountName'])
+        self.write(json.dumps(account_list))
+
+class queryAccountList_Click(authenticateBase):
+    def post(self):
+        mysql = mysqlLib()
+        param = ()
+        ret = mysql.query_account_click_list(param)
+        mysql.close()
+        account_list = []
+        json_arr = json.loads(ret[0][0])
+        for item in json_arr:
+            account_list.append(item['accountName'])
+        self.write(json.dumps(account_list))
+
+class queryAccountBalance(authenticateBase):
+    def post(self):
+        post_param=urlparse.parse_qs(self.request.body,True)
+        monitorMetrics_id = post_param['metricsID'][0]
+        startdate = post_param['startdate'][0]
+        enddate = post_param['enddate'][0]
+        account = post_param['account'][0]
+        #print monitorMetrics_id
+        param=(monitorMetrics_id, startdate, enddate)
+        mysql=mysqlLib()
+        ret = mysql.query_tbl_monitortask_list(param)
+        serverlist_info = []
+        for item in ret:
+            serverlist_info.append(item[0])
+        cat = []
+        data = []
+        for item in serverlist_info:
+            param = (item)
+            ret = mysql.query_tbl_monitordata_account_info(param)
+            ret = json.loads(ret[0][0])
+            for item_item in ret:
+                if(item_item['accountName'] == account):
+                    cat.append(item_item['datetime'])
+                    data.append(item_item['balance'])
+        mysql.close()
+        '''mysql = mysqlLib()
+        param = ()
+        ret = mysql.query_account_name_list(param)
+        account_list = []
+        json_arr = json.loads(ret[0][0])
+        for item in json_arr:
+            account_list.append(item['accountName'])'''
+        account_info_list = {'cat':cat,'data':data}
+        self.write(json.dumps(account_info_list))
+
+class queryAccountClick(authenticateBase):
+    def post(self):
+        post_param=urlparse.parse_qs(self.request.body,True)
+        monitorMetrics_id = post_param['metricsID'][0]
+        startdate = post_param['startdate'][0]
+        enddate = post_param['enddate'][0]
+        account = post_param['account'][0]
+        #print monitorMetrics_id
+        param=(monitorMetrics_id, startdate, enddate)
+        mysql=mysqlLib()
+        ret = mysql.query_tbl_monitortask_list(param)
+        serverlist_info = []
+        for item in ret:
+            serverlist_info.append(item[0])
+        cat = []
+        data0 = []
+        data1 = []
+        data2 = []
+        data3 = []
+        for item in serverlist_info:
+            param = (item)
+            ret = mysql.query_tbl_monitordata_account_info(param)
+            ret = json.loads(ret[0][0])
+            for item_item in ret:
+                if(item_item['accountName'] == account):
+                    cat.append(item_item['datetime'])
+                    data0.append(int(item_item['clickrate'][0]))
+                    data1.append(int(item_item['clickrate'][1]))
+                    data2.append(int(item_item['clickrate'][2]))
+                    data3.append(int(item_item['clickrate'][3]))
+        mysql.close()
+        '''mysql = mysqlLib()
+        param = ()
+        ret = mysql.query_account_name_list(param)
+        account_list = []
+        json_arr = json.loads(ret[0][0])
+        for item in json_arr:
+            account_list.append(item['accountName'])'''
+        account_info_list = {'cat':cat,'data0':data0,'data1':data1,'data2':data2,'data3':data3}
+        self.write(json.dumps(account_info_list))
+
+class queryAccounts(authenticateBase):
+    def post(self):
+        post_param=urlparse.parse_qs(self.request.body,True)
+        monitorMetrics_id=post_param['metricsID'][0]
+        #print monitorMetrics_id
+        param=(monitorMetrics_id)
+        mysql=mysqlLib()
+        ret = mysql.query_tbl_monitortask_list(param)
+        tasklist_info = []
+        for item in ret:
+            tasklist_info.append(item[0])
+        task_id = tasklist_info[-1]
+        account_list = []
+        param = (task_id)
+        ret = mysql.query_tbl_url_data(param)
+        for item in ret:
+            account_list.append(item[0])
+        mysql.close()
+        self.write(json.dumps(account_list))
+
+
+class queryTableData(authenticateBase):
+    def get(self):
+        userid=self.get_cookie_user()
+        #page = self.get_argument("page").encode('utf-8')
+        '''limit = self.get_argument("limit").encode('utf-8')
+        offset = self.get_argument("offset").encode('utf-8')
+        sort = self.get_argument("sort").encode('utf-8')
+        order = self.get_argument("order").encode('utf-8')
+        print limit,offset,sort,order'''
+        if(userid):
+            data = {
+            "total":100,
+            "rows":[
+        			{
+        				"name": "bootstrap-table",
+        				"stargazers_count": "526",
+        				"forks_count": "122",
+        				"description": "An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3) "
+        			},
+        			{
+        				"name": "multiple-select",
+        				"stargazers_count": "288",
+        				"forks_count": "150",
+        				"description": "A jQuery plugin to select multiple elements with checkboxes :)"
+        			},
+        			{
+        				"name": "bootstrap-show-password",
+        				"stargazers_count": "32",
+        				"forks_count": "11",
+        				"description": "Show/hide password plugin for twitter bootstrap."
+        			},
+        			{
+        				"name": "blog",
+        				"stargazers_count": "13",
+        				"forks_count": "4",
+        				"description": "my blog"
+        			},
+        			{
+        				"name": "scutech-redmine",
+        				"stargazers_count": "6",
+        				"forks_count": "3",
+        				"description": "Redmine notification tools for chrome extension."
+        			}
+        		]
+            }
+            self.write(json.dumps(data))
+        else:
+            redirect_url=CAS_SETTINGS[ 'cas_server' ] + '/login?service=' + CAS_SETTINGS[ 'service_url' ]
+            self.redirect(redirect_url)
+
+
+class queryURLData(authenticateBase):
+    def get(self):
+        userid=self.get_cookie_user()
+        limit = int(self.get_argument("limit").encode('utf-8'))
+        offset = int(self.get_argument("offset").encode('utf-8'))
+        orderby = str(self.get_argument("sort").encode('utf-8'))
+        ASC_DESC = self.get_argument("order").encode('utf-8').upper()
+        #print limit,offset,orderby,ASC_DESC
+        if(userid):
+            mysql = mysqlLib()
+            cnt= mysql.query_tbl_url_data_info_cnt()
+            mysql.close()
+            #print cnt
+            mysql = mysqlLib()
+            param = (orderby,ASC_DESC,offset,limit)
+            ret = mysql.query_tbl_url_data_info(param)
+            #print ret
+            rows = []
+            for item in ret:
+                tmp_row = {}
+                tmp_row['id'] = item[0]
+                tmp_row['timepoint'] = str(item[1])
+                tmp_row['accountName'] = item[2]
+                tmp_row['totalurlNum'] = item[3]
+                tmp_row['errorurlNum'] = item[4]
+                tmp_row['deadDealNum'] = item[5]
+                tmp_row['badDeadDealNum'] = item[6]
+                tmp_row['openurlErrorNum'] = item[7]
+                tmp_row['noListResultNum'] = item[8]
+                tmp_row['errorCidNum'] = item[9]
+                tmp_row['formatErrorNum'] = item[10]
+                tmp_row['nullUrlNum'] = item[11]
+                tmp_row['operation'] = item[0]
+                rows.append(tmp_row)
+            mysql.close()
+            data = {"total":cnt,"rows":rows}
+            self.write(json.dumps(data))
+        else:
+            redirect_url=CAS_SETTINGS[ 'cas_server' ] + '/login?service=' + CAS_SETTINGS[ 'service_url' ]
+            self.redirect(redirect_url)
+
+class queryUrlDetail(authenticateBase):
+    def get(self):
+        userid=self.get_cookie_user()
+        urldataid = int(self.get_argument("urldataid").encode('utf-8'))
+        if(userid):
+            self.render("./plugins/3.urldata.html", usrname=userid,urldataid=urldataid)
+        else:
+            redirect_url=CAS_SETTINGS[ 'cas_server' ] + '/login?service=' + CAS_SETTINGS[ 'service_url' ]
+            self.redirect(redirect_url)
+
+class queryUrlDetailInfo(authenticateBase):
+    def get(self):
+        userid=self.get_cookie_user()
+        urldataid = int(self.get_argument("urldataid").encode('utf-8'))
+        limit = int(self.get_argument("limit").encode('utf-8'))
+        offset = int(self.get_argument("offset").encode('utf-8'))
+        orderby = str(self.get_argument("sort").encode('utf-8'))
+        ASC_DESC = self.get_argument("order").encode('utf-8').upper()
+        #print limit,offset,orderby,ASC_DESC,urldataid
+        if(userid):
+            mysql = mysqlLib()
+            param=(urldataid)
+            cnt= mysql.query_tbl_url_data_detail_info_cnt(param)
+            mysql.close()
+            #print cnt
+            mysql = mysqlLib()
+            param = (urldataid,orderby,ASC_DESC,offset,limit)
+            ret = mysql.query_tbl_url_data_detail_info(param)
+            #print ret
+            rows = []
+            if(len(ret) != 0):
+                for item in ret:
+                    tmp_row = {}
+                    tmp_row['id'] = item[0]
+                    tmp_row['accountname'] = item[1]
+                    tmp_row['plan'] = item[2]
+                    tmp_row['cell'] = item[3]
+                    tmp_row['keyword'] = item[4]
+                    tmp_row['discription'] = item[5]
+                    tmp_row['url'] = item[6]
+                    tmp_row['pc_mobile'] = item[7]
+                    tmp_row['timepoint'] = str(item[8])
+                    rows.append(tmp_row)
+            mysql.close()
+            data = {"total":cnt,"rows":rows}
+            self.write(json.dumps(data))
+        else:
+            redirect_url=CAS_SETTINGS[ 'cas_server' ] + '/login?service=' + CAS_SETTINGS[ 'service_url' ]
+            self.redirect(redirect_url)
+
+class queryWordList(authenticateBase):
+    def get(self):
+        userid=self.get_cookie_user()
+        if(userid):
+            mysql = mysqlLib()
+            param = ()
+            ret = mysql.query_tbl_wordclass_data(param)
+            rows = []
+            for item in ret:
+                rows.append(item[0])
+            mysql.close()
+            self.write(json.dumps(rows))
+        else:
+            redirect_url=CAS_SETTINGS[ 'cas_server' ] + '/login?service=' + CAS_SETTINGS[ 'service_url' ]
+            self.redirect(redirect_url)
+
+class queryWordInfo(authenticateBase):
+    def post(self):
+        post_param=urlparse.parse_qs(self.request.body,True)
+        wordName=post_param['wordName'][0]
+        startdate=post_param['startdate'][0]
+        enddate=post_param['enddate'][0]
+        param=(wordName, startdate, enddate)
+        mysql=mysqlLib()
+        ret = mysql.query_tbl_wordclass_data_info(param)
+        ret_info = {}
+        cat = []
+        imp = []
+        click = []
+        cost = []
+        for item in ret:
+            cat.append(str(item[0]))
+            imp.append(int(item[1]))
+            click.append(int(item[2]))
+            cost.append(float(item[3]))
+        mysql.close()
+        ret_info['cat'] = cat
+        ret_info['imp'] = imp
+        ret_info['click'] = click
+        ret_info['cost'] = cost
+        #print ret_info
+        self.write(json.dumps(ret_info))
+
+class queryMetricsAlarm(authenticateBase):
+    def get(self):
+        userid=self.get_cookie_user()
+        metricsID = int(self.get_argument("metricsID").encode('utf-8'))
+        if(userid):
+            self.render("./plugins/alarm.html", usrname=userid,metricsID=metricsID)
+        else:
+            redirect_url=CAS_SETTINGS[ 'cas_server' ] + '/login?service=' + CAS_SETTINGS[ 'service_url' ]
+            self.redirect(redirect_url)
+
+class queryMetricsAlarmInfo(authenticateBase):
+    def get(self):
+        try:
+            userid=self.get_cookie_user()
+            metricsID = int(self.get_argument("metricsID").encode('utf-8'))
+            limit = int(self.get_argument("limit").encode('utf-8'))
+            offset = int(self.get_argument("offset").encode('utf-8'))
+            orderby = str(self.get_argument("sort").encode('utf-8'))
+            ASC_DESC = self.get_argument("order").encode('utf-8').upper()
+            mysql = mysqlLib()
+            param=(metricsID)
+            cnt = mysql.query_tbl_alarmobj_metrics_related_cnt(param)
+            mysql.close()
+
+            mysql = mysqlLib()
+            param=(metricsID,orderby,ASC_DESC,offset,limit)
+            ret=mysql.query_tbl_alarmobj_metrics_related(param)
+
+            rows = []
+            if(len(ret) != 0):
+                for item in ret:
+                    tmp_row = {}
+                    tmp_row['id'] = item[0]
+                    tmp_row['description'] = item[1]
+                    tmp_row['status'] = item[2]
+                    tmp_row['datetime'] = str(item[3])
+                    if(item[4] == None):
+                        tmp_row['inactive_datetime'] = '-'
+                    else:
+                        tmp_row['inactive_datetime'] = str(item[4])
+                    tmp_row['cause'] = item[5]
+                    tmp_row['handleBy'] = item[6]
+                    tmp_row['info'] = item[7]
+                    tmp_row['operation'] = [item[0],item[2],str(item[5]),userid]
+                    rows.append(tmp_row)
+            mysql.close()
+            data = {"total":cnt,"rows":rows}
+            self.write(json.dumps(data))
+        except Exception as e:
+            logging.error(str(e))
+            logging.info(traceback.print_exc())
+
+class queryClickURLData(authenticateBase):
+    def get(self):
+        try:
+            userid=self.get_cookie_user()
+            #metricsID = int(self.get_argument("metricsID").encode('utf-8'))
+            limit = int(self.get_argument("limit").encode('utf-8'))
+            offset = int(self.get_argument("offset").encode('utf-8'))
+            orderby = str(self.get_argument("sort").encode('utf-8'))
+            ASC_DESC = self.get_argument("order").encode('utf-8').upper()
+
+            mysql = mysqlLib()
+            cnt = mysql.query_queryClickURLData_cnt()
+            mysql.close()
+
+            mysql = mysqlLib()
+            param=(orderby,ASC_DESC,offset,limit)
+            ret=mysql.query_queryClickURLData_info(param)
+
+            rows = []
+            if(len(ret) != 0):
+                for item in ret:
+                    info = json.loads(item[1])
+                    for info_item in info:
+                        tmp_row = {}
+                        tmp_row['id'] = item[0]
+                        try:
+                            tmp_row['name'] = info_item['name']
+                            tmp_row['expectURL'] = info_item['expLoc']
+                            tmp_row['actURL'] = info_item['respLoc']
+                            tmp_row['date'] = str(info_item['cutime'])
+                        except Exception as e:
+                            pass
+                        rows.append(tmp_row)
+            mysql.close()
+            data = {"total":cnt,"rows":rows}
+            self.write(json.dumps(data))
+        except Exception as e:
+            logging.error(str(e))
+            logging.info(traceback.print_exc())
+
+class queryCookieInfoData(authenticateBase):
+    def get(self):
+        try:
+            userid=self.get_cookie_user()
+            #metricsID = int(self.get_argument("metricsID").encode('utf-8'))
+            limit = int(self.get_argument("limit").encode('utf-8'))
+            offset = int(self.get_argument("offset").encode('utf-8'))
+            orderby = str(self.get_argument("sort").encode('utf-8'))
+            ASC_DESC = self.get_argument("order").encode('utf-8').upper()
+
+            mysql = mysqlLib()
+            cnt = mysql.query_queryCookieInfoData_cnt()
+            mysql.close()
+
+            mysql = mysqlLib()
+            param=(orderby,ASC_DESC,offset,limit)
+            ret=mysql.query_queryCookieInfoData_info(param)
+
+            rows = []
+            if(len(ret) != 0):
+                for item in ret:
+                    info = json.loads(item[1])
+                    for info_item in info:
+                        tmp_row = {}
+                        tmp_row['id'] = item[0]
+                        try:
+                            tmp_row['name'] = info_item['name']
+                            tmp_row['expCpsId'] = info_item['expCpsId']
+                            tmp_row['resCpsId'] = info_item['resCpsId']
+                            tmp_row['expCpsInfo'] = info_item['expCpsInfo']
+                            tmp_row['resCpsInfo'] = info_item['resCpsInfo']
+                            tmp_row['date'] = str(info_item['cutime'])
+                        except Exception as e:
+                            pass
+                        rows.append(tmp_row)
+            mysql.close()
+            data = {"total":cnt,"rows":rows}
+            self.write(json.dumps(data))
+        except Exception as e:
+            logging.error(str(e))
+            logging.info(traceback.print_exc())
+
+class queryVerifyInfoData(authenticateBase):
+    def get(self):
+        try:
+            userid=self.get_cookie_user()
+            #metricsID = int(self.get_argument("metricsID").encode('utf-8'))
+            limit = int(self.get_argument("limit").encode('utf-8'))
+            offset = int(self.get_argument("offset").encode('utf-8'))
+            orderby = str(self.get_argument("sort").encode('utf-8'))
+            ASC_DESC = self.get_argument("order").encode('utf-8').upper()
+
+            mysql = mysqlLib()
+            cnt = mysql.query_queryVerifyInfoData_cnt()
+            mysql.close()
+
+            mysql = mysqlLib()
+            param=(orderby,ASC_DESC,offset,limit)
+            ret=mysql.query_queryVerifyInfoData_info(param)
+
+            rows = []
+            if(len(ret) != 0):
+                for item in ret:
+                    try:
+                        info = json.loads(item[1].strip("\""))
+                    except Exception as e:
+                        tmp_row = {}
+                        tmp_row['id'] = item[0]
+                        tmp_row['log'] = item[1].strip("\"")
+                        tmp_row['operation'] = item[1].strip("\"")
+                        rows.append(tmp_row)
+            mysql.close()
+            data = {"total":cnt,"rows":rows}
+            self.write(json.dumps(data))
+        except Exception as e:
+            logging.error(str(e))
+            logging.info(traceback.print_exc())
+
+class queryPushSuccessInfoData(authenticateBase):
+    def get(self):
+        try:
+            userid=self.get_cookie_user()
+            #metricsID = int(self.get_argument("metricsID").encode('utf-8'))
+            limit = int(self.get_argument("limit").encode('utf-8'))
+            offset = int(self.get_argument("offset").encode('utf-8'))
+            orderby = str(self.get_argument("sort").encode('utf-8'))
+            ASC_DESC = self.get_argument("order").encode('utf-8').upper()
+
+            mysql = mysqlLib()
+            cnt = mysql.query_queryPushSuccessInfoData_cnt()
+            mysql.close()
+
+            mysql = mysqlLib()
+            param=(orderby,ASC_DESC,offset,limit)
+            ret=mysql.query_queryPushSuccessInfoData_info(param)
+
+            rows = []
+            if(len(ret) != 0):
+                for item in ret:
+                    info = json.loads(item[1])
+                    tmp_row = {}
+                    tmp_row['id'] = item[0]
+                    try:
+                        tmp_row['date'] = info['cutime']
+                    except:
+                        pass
+                    tmp_row['totalSuccess'] = info['totalSuccess']
+                    tmp_row['log'] = info['log']
+                    tmp_row['operation'] = info['log']
+                    rows.append(tmp_row)
+            mysql.close()
+            data = {"total":cnt,"rows":rows}
+            self.write(json.dumps(data))
+        except Exception as e:
+            logging.error(str(e))
+            logging.info(traceback.print_exc())
+
+class queryPushFailInfoData(authenticateBase):
+    def get(self):
+        try:
+            userid=self.get_cookie_user()
+            #metricsID = int(self.get_argument("metricsID").encode('utf-8'))
+            limit = int(self.get_argument("limit").encode('utf-8'))
+            offset = int(self.get_argument("offset").encode('utf-8'))
+            orderby = str(self.get_argument("sort").encode('utf-8'))
+            ASC_DESC = self.get_argument("order").encode('utf-8').upper()
+
+            mysql = mysqlLib()
+            cnt = mysql.query_queryPushFailInfoData_cnt()
+            mysql.close()
+
+            mysql = mysqlLib()
+            param=(orderby,ASC_DESC,offset,limit)
+            ret=mysql.query_queryPushFailInfoData_info(param)
+
+            rows = []
+            if(len(ret) != 0):
+                for item in ret:
+                    info = json.loads(item[1])
+                    tmp_row = {}
+                    tmp_row['id'] = item[0]
+                    try:
+                        tmp_row['date'] = info['cutime']
+                    except:
+                        pass
+                    tmp_row['totalFail'] = info['totalFail']
+                    tmp_row['log'] = info['log']
+                    tmp_row['operation'] = info['log']
+                    rows.append(tmp_row)
+            mysql.close()
+            data = {"total":cnt,"rows":rows}
+            self.write(json.dumps(data))
+        except Exception as e:
+            logging.error(str(e))
+            logging.info(traceback.print_exc())
+
+class query_tbl_zhixin_monitordata_hostlist(authenticateBase):
+    def post(self):
+        post_param=urlparse.parse_qs(self.request.body,True)
+        flag = int(post_param['flag'][0])
+        param=(flag)
+        mysql=mysqlLib()
+        ret = mysql.query_tbl_zhixin_monitordata_hostlist(param)
+        hostlist = []
+        for item in ret:
+            hostlist.append(item[0])
+        mysql.close()
+        self.write(json.dumps(hostlist))
+
+class queryzhixinDelayChartData(authenticateBase):
+    def post(self):
+        post_param=urlparse.parse_qs(self.request.body,True)
+        startdate = post_param['startdate'][0]
+        enddate = post_param['enddate'][0]
+        hostname = post_param['hostname'][0]
+        cityID = int(post_param['cityID'][0])
+        srcID = int(post_param['srcID'][0])
+        flag = int(post_param['flag'][0])
+        param=(startdate, enddate, hostname, cityID, srcID, flag)
+        mysql=mysqlLib()
+        ret = mysql.query_tbl_zhixin_monitordata_delay(param)
+        ret_info = {}
+        cat = []
+        as_delay = []
+        zhixin_delay = []
+        for item in ret:
+            cat.append(str(item[0]))
+            as_delay.append(float(item[1]))
+            zhixin_delay.append(float(item[2]))
+        mysql.close()
+        ret_info['cat'] = cat
+        ret_info['as_delay'] = as_delay
+        ret_info['zhixin_delay'] = zhixin_delay
+        self.write(json.dumps(ret_info))
+
+class queryzhixinFlowChartData(authenticateBase):
+    def post(self):
+        post_param=urlparse.parse_qs(self.request.body,True)
+        startdate = post_param['startdate'][0]
+        enddate = post_param['enddate'][0]
+        hostname = post_param['hostname'][0]
+        cityID = int(post_param['cityID'][0])
+        srcID = int(post_param['srcID'][0])
+        flag = int(post_param['flag'][0])
+        param=(startdate, enddate, hostname, cityID, srcID, flag)
+        mysql=mysqlLib()
+        ret = mysql.query_tbl_zhixin_monitordata_flow(param)
+        ret_info = {}
+        cat = []
+        flow = []
+        for item in ret:
+            cat.append(str(item[0]))
+            flow.append(int(item[1]))
+        mysql.close()
+        ret_info['cat'] = cat
+        ret_info['flow'] = flow
+        self.write(json.dumps(ret_info))
+
+class queryzhixinNULLChartData(authenticateBase):
+    def post(self):
+        post_param=urlparse.parse_qs(self.request.body,True)
+        startdate = post_param['startdate'][0]
+        enddate = post_param['enddate'][0]
+        hostname = post_param['hostname'][0]
+        cityID = int(post_param['cityID'][0])
+        srcID = int(post_param['srcID'][0])
+        flag = int(post_param['flag'][0])
+        param=(startdate, enddate, hostname, cityID, srcID, flag)
+        mysql=mysqlLib()
+        ret = mysql.query_tbl_zhixin_monitordata_null(param)
+        ret_info = {}
+        cat = []
+        as_null = []
+        zhixin_null = []
+        for item in ret:
+            cat.append(str(item[0]))
+            as_null.append(int(item[1]))
+            zhixin_null.append(int(item[2]))
+        mysql.close()
+        ret_info['cat'] = cat
+        ret_info['as_null'] = as_null
+        ret_info['zhixin_null'] = zhixin_null
+        self.write(json.dumps(ret_info))
+
+class querySEOTSMInterfaceInfo(authenticateBase):
+    def post(self):
+        post_param=urlparse.parse_qs(self.request.body,True)
+        _type = post_param['type'][0]
+        param=(_type)
+        mysql=mysqlLib()
+        ret = mysql.query_tbl_seo(param)
+        data = []
+        for item in ret:
+            data.append(int(item[0]))
+            data.append(int(item[1]))
+            data.append(int(item[2]))
+            data.append(json.loads(item[3]))
+        mysql.close()
+        self.write(json.dumps(data))
+
+
+
+#########################################################################################
+#########################################################################################
+#########################################################################################
+class serviceMonitor(authenticateBase):
+    def get(self):
+        userid=self.get_cookie_user()
+        if(userid):
+            self.render("./serviceMonitor/overallView.html",usrname=userid)
+        else:
+            redirect_url=CAS_SETTINGS[ 'cas_server' ] + '/login?service=' + CAS_SETTINGS[ 'service_url' ]
+            self.redirect(redirect_url)
+class historyAlarm(authenticateBase):
+    def get(self):
+        userid=self.get_cookie_user()
+        if(userid):
+            self.render("./serviceMonitor/historyAlarm.html",usrname=userid)
+        else:
+            redirect_url=CAS_SETTINGS[ 'cas_server' ] + '/login?service=' + CAS_SETTINGS[ 'service_url' ]
+            self.redirect(redirect_url)
+class queryAlarm(authenticateBase):
+    def post(self):
+        try:
+            post_param=urlparse.parse_qs(self.request.body,True)
+            limit=int(post_param['limit'][0])
+            offset=int(post_param['offset'][0])
+
+            param={"limit":limit,"offset":offset}
+            mysql=mysqlLib()
+            alarm_list=mysql.query_tbl_alarmobj(param)
+
+            param={}
+            alarm_totalcnt=mysql.query_alarm_totalcnt(param)
+            mysql.close()
+
+            alarm_list_info={}
+            alarm_list_info['alarm_totalcnt']=alarm_totalcnt
+            ret_dict=[]
+            for index,item in enumerate(alarm_list):
+                sub_ret_dict={}
+                sub_ret_dict['id']=str(int(item[0]))
+                sub_ret_dict['alarmConf_id']=str(int(item[1]))
+                sub_ret_dict['monitorTask_id']=str(int(item[2]))
+                sub_ret_dict['monitorObj_id']=str(int(item[3]))
+                sub_ret_dict['monitorMetrics_id']=str(int(item[4]))
+                sub_ret_dict['description']=item[5]
+                sub_ret_dict['status']=str(int(item[6]))
+                sub_ret_dict['datetime']=str(item[7])
+                sub_ret_dict['cause']=item[8]
+                sub_ret_dict['handleBy']=item[9]
+                sub_ret_dict['info']=item[10]
+                ret_dict.append(sub_ret_dict)
+            alarm_list_info['ret_dict']=ret_dict
+            self.write(json.dumps(alarm_list_info))
+        except Exception as e:
+            logging.error(str(e))
+            logging.info(traceback.print_exc())
+class queryMonitorTreeData(authenticateBase):
+    def get(self):
+        userid=self.get_cookie_user()
+        if(userid):
+            MonitorTreeData = parse_conf("./conf/bmeMonitorTree.json")
+            self.write(json.dumps(MonitorTreeData))
+        else:
+            redirect_url=CAS_SETTINGS[ 'cas_server' ] + '/login?service=' + CAS_SETTINGS[ 'service_url' ]
+            self.redirect(redirect_url)
+
+################################################################################################################
 class task(authenticateBase):
     def get(self):
         userid=self.get_cookie_user()
@@ -717,7 +1766,6 @@ if __name__ == "__main__":
 
     tornado.options.parse_command_line()
     app=tornado.web.Application(handlers=[
-    ( r'/pb/test/', test),
     ( r'/pb/task/', task),
     ( r'/pb/conf/', conf),
     ( r'/pb/stat/', stat),
@@ -734,6 +1782,10 @@ if __name__ == "__main__":
 
     ( r'/', LoginHandler),
     ( r'/logout/',LogoutHandler),
+    ( r'/serviceMonitor/',serviceMonitor),
+    ( r'/serviceMonitor/historyAlarm/',historyAlarm),
+    ( r'/serviceMonitor/queryAlarm/',queryAlarm),
+    ( r'/serviceMonitor/queryMonitorTreeData/',queryMonitorTreeData),
 
     ( r'/jobsubmit/',jobstatusubmit),
     ( r'/jobstatus/',jobstatus),
@@ -749,6 +1801,43 @@ if __name__ == "__main__":
 
     ( r'/family/',family),
     ( r'/stat/', stat),
+
+    ( r'/nav/', nav),
+    ( r'/monitor/', monitor),
+    ( r'/help/', helpcls),
+    ( r'/querytreedata/', querytreedata),
+    ( r'/queryMonitorMetricsData/', queryMonitorMetricsData),
+    ( r'/queryAlarmDayperiod/', queryAlarmDayperiod),
+    ( r'/queryHistoryAlarm/', queryHistoryAlarm),
+    ( r'/queryAlarmDetail/', queryAlarmDetail),
+    ( r'/updateAlarmInfo/', updateAlarmInfo),
+    ( r'/queryMetricsDataChart/', queryMetricsDataChart),
+    ( r'/queryAccountList/',queryAccountList),
+    ( r'/queryAccountList_Click/',queryAccountList_Click),
+    ( r'/queryAccountBalance/',queryAccountBalance),
+    ( r'/queryAccountClick/',queryAccountClick),
+    ( r'/queryAccounts/',queryAccounts),
+    ( r'/queryTableData/',queryTableData),
+    ( r'/queryURLData/',queryURLData),
+    ( r'/queryUrlDetail/',queryUrlDetail),
+    ( r'/queryUrlDetailInfo/',queryUrlDetailInfo),
+    ( r'/queryWordList/',queryWordList),
+    ( r'/queryWordInfo/',queryWordInfo),
+    ( r'/queryMetricsAlarm/',queryMetricsAlarm),
+    ( r'/queryMetricsAlarmInfo/',queryMetricsAlarmInfo),
+    ( r'/queryClickURLData/',queryClickURLData),
+    ( r'/queryCookieInfoData/',queryCookieInfoData),
+    ( r'/queryVerifyInfoData/',queryVerifyInfoData),
+    ( r'/queryPushSuccessInfoData/',queryPushSuccessInfoData),
+    ( r'/queryPushFailInfoData/',queryPushFailInfoData),
+    ( r'/query_tbl_zhixin_monitordata_hostlist/',query_tbl_zhixin_monitordata_hostlist),
+    ( r'/queryzhixinDelayChartData/',queryzhixinDelayChartData),
+    ( r'/queryzhixinFlowChartData/',queryzhixinFlowChartData),
+    ( r'/queryzhixinNULLChartData/',queryzhixinNULLChartData),
+    ( r'/querySEOTSMInterfaceInfo/',querySEOTSMInterfaceInfo),
+
+
+
     ],**settings
     )
     HttpServer=tornado.httpserver.HTTPServer(app)

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/bootstrap-datetimepicker-master
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/bootstrap-datetimepicker-master/LICENSE
+END
+package.json
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/bootstrap-datetimepicker-master/package.json
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/bootstrap-datetimepicker-master/.gitignore
+END
+CONTRIBUTING.md
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/bootstrap-datetimepicker-master/CONTRIBUTING.md
+END
+.travis.yml
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/bootstrap-datetimepicker-master/.travis.yml
+END
+bower.json
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/bootstrap-datetimepicker-master/bower.json
+END
+.jscs.json
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/bootstrap-datetimepicker-master/.jscs.json
+END
+Gruntfile.js
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/bootstrap-datetimepicker-master/Gruntfile.js
+END
+component.json
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/bootstrap-datetimepicker-master/component.json
+END
+.npmignore
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/bootstrap-datetimepicker-master/.npmignore
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/bootstrap-datetimepicker-master/README.md
+END
+composer.json
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/myspace/!svn/ver/220975/lbs/bmeqa/bmeMonitor/web/static/js/model/bootstrap-datetimepicker-master/composer.json
+END

@@ -1,14 +1,14 @@
 10
 
 dir
-212829
+236788
 https://svn.baidu.com/myspace/lbs/bmeqa/bmeMonitor/web/template
 https://svn.baidu.com/myspace
 
 
 
-2015-01-07T06:55:31.933136Z
-210991
+2015-03-05T04:13:54.883957Z
+235711
 yangjun03
 
 
@@ -26,7 +26,10 @@ yangjun03
 
 c4ccc3fd-b13d-49bf-a705-f618d8f4424a
 
-stat
+serviceMonitor
+dir
+
+bak
 dir
 
 bmeMonitor.html
@@ -35,10 +38,10 @@ file
 
 
 
-2015-01-11T16:22:46.000000Z
-c5c01adb6b0fc35eb8c22f3527b9e0bb
-2015-01-07T06:55:31.933136Z
-210991
+2015-03-06T09:31:20.000000Z
+755b9c125bbe263775472b468ee71430
+2015-01-13T06:01:33.138727Z
+213529
 yangjun03
 
 
@@ -61,17 +64,11 @@ yangjun03
 
 
 
-8621
+8636
 
-taskmanagement
+plugins
 dir
 
-test
-dir
-
-nodemanagement
-dir
-
-conf
+demo
 dir
 

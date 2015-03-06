@@ -1791,10 +1791,10 @@ input.check.check-first {
 .header .h_logo {
 	float: left;
 }
-.header .h_logo img {
-	height: 48px;
-	width: 136px;
-}
+/*.header .h_logo img {
+	#height: 48px;
+	#width: 136px;
+}*/
 .header .h_nav {
 	display: inline;
 	float: right;

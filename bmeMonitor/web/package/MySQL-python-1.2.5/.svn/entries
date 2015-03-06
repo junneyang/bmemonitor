@@ -1,7 +1,7 @@
 10
 
 dir
-212829
+236788
 https://svn.baidu.com/myspace/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5
 https://svn.baidu.com/myspace
 
@@ -25,151 +25,6 @@ chengyunlai
 
 
 c4ccc3fd-b13d-49bf-a705-f618d8f4424a
-
-setup_common.py
-file
-
-
-
-
-2015-01-11T16:22:44.000000Z
-1d75edb0757f7d4567ad7723d8ba082e
-2015-01-04T08:25:47.419905Z
-209492
-chengyunlai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1088
-
-build
-dir
-
-MySQL_python.egg-info
-dir
-
-HISTORY
-file
-
-
-
-
-2015-01-11T16:22:44.000000Z
-32b27cf828f704da38811afc98e64260
-2015-01-04T08:25:47.419905Z
-209492
-chengyunlai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5687
-
-setup_windows.py
-file
-
-
-
-
-2015-01-11T16:22:44.000000Z
-c60f4911c5037498343f0bf1136b7802
-2015-01-04T08:25:47.419905Z
-209492
-chengyunlai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1334
-
-site.cfg
-file
-
-
-
-
-2015-01-11T16:22:44.000000Z
-d405351956a67805791060e56954d6a8
-2015-01-04T08:25:47.419905Z
-209492
-chengyunlai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-665
-
-tests
-dir
 
 dist
 dir
@@ -279,9 +134,6 @@ chengyunlai
 
 1689
 
-MySQLdb
-dir
-
 MANIFEST.in
 file
 
@@ -315,6 +167,9 @@ chengyunlai
 
 
 309
+
+MySQLdb
+dir
 
 metadata.cfg
 file
@@ -587,4 +442,149 @@ chengyunlai
 
 
 398
+
+build
+dir
+
+setup_common.py
+file
+
+
+
+
+2015-01-11T16:22:44.000000Z
+1d75edb0757f7d4567ad7723d8ba082e
+2015-01-04T08:25:47.419905Z
+209492
+chengyunlai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1088
+
+MySQL_python.egg-info
+dir
+
+setup_windows.py
+file
+
+
+
+
+2015-01-11T16:22:44.000000Z
+c60f4911c5037498343f0bf1136b7802
+2015-01-04T08:25:47.419905Z
+209492
+chengyunlai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1334
+
+HISTORY
+file
+
+
+
+
+2015-01-11T16:22:44.000000Z
+32b27cf828f704da38811afc98e64260
+2015-01-04T08:25:47.419905Z
+209492
+chengyunlai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5687
+
+tests
+dir
+
+site.cfg
+file
+
+
+
+
+2015-01-11T16:22:44.000000Z
+d405351956a67805791060e56954d6a8
+2015-01-04T08:25:47.419905Z
+209492
+chengyunlai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+665
 

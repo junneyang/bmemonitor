@@ -1,19 +1,37 @@
 K 25
 svn:wc:ra_dav:version-url
 V 56
-/myspace/!svn/ver/209600/lbs/bmeqa/bmeMonitor/web/static
+/myspace/!svn/ver/231059/lbs/bmeqa/bmeMonitor/web/static
 END
-del.bmp
+r_fail.png
 K 25
 svn:wc:ra_dav:version-url
-V 64
-/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/del.bmp
+V 67
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/r_fail.png
+END
+fail.gif
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/fail.gif
+END
+blue_stop.png
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/myspace/!svn/ver/214322/lbs/bmeqa/bmeMonitor/web/static/blue_stop.png
 END
 loading.gif
 K 25
 svn:wc:ra_dav:version-url
 V 68
 /myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/loading.gif
+END
+del.bmp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/del.bmp
 END
 running.gif
 K 25
@@ -27,23 +45,41 @@ svn:wc:ra_dav:version-url
 V 65
 /myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/view.bmp
 END
+red_anime.gif
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/myspace/!svn/ver/214322/lbs/bmeqa/bmeMonitor/web/static/red_anime.gif
+END
 l_loading.gif
 K 25
 svn:wc:ra_dav:version-url
 V 70
 /myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/l_loading.gif
 END
-r_exception.png
+yellow.png
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/myspace/!svn/ver/214322/lbs/bmeqa/bmeMonitor/web/static/yellow.png
+END
+black.png
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/myspace/!svn/ver/214322/lbs/bmeqa/bmeMonitor/web/static/black.png
+END
+pannel_back.gif
 K 25
 svn:wc:ra_dav:version-url
 V 72
-/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/r_exception.png
+/myspace/!svn/ver/218245/lbs/bmeqa/bmeMonitor/web/static/pannel_back.gif
 END
-exception.gif
+r_loading.gif
 K 25
 svn:wc:ra_dav:version-url
 V 70
-/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/exception.gif
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/r_loading.gif
 END
 edit.bmp
 K 25
@@ -51,11 +87,17 @@ svn:wc:ra_dav:version-url
 V 65
 /myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/edit.bmp
 END
-r_loading.gif
+exception.gif
 K 25
 svn:wc:ra_dav:version-url
 V 70
-/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/r_loading.gif
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/exception.gif
+END
+r_exception.png
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/r_exception.png
 END
 top_deep.gif
 K 25
@@ -69,17 +111,17 @@ svn:wc:ra_dav:version-url
 V 70
 /myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/r_running.gif
 END
-top.gif
-K 25
-svn:wc:ra_dav:version-url
-V 64
-/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/top.gif
-END
 waiting.gif
 K 25
 svn:wc:ra_dav:version-url
 V 68
 /myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/waiting.gif
+END
+top.gif
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/top.gif
 END
 r_warning.png
 K 25
@@ -93,6 +135,18 @@ svn:wc:ra_dav:version-url
 V 66
 /myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/start.bmp
 END
+bk.jpg
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/myspace/!svn/ver/220994/lbs/bmeqa/bmeMonitor/web/static/bk.jpg
+END
+index.gif
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/myspace/!svn/ver/222944/lbs/bmeqa/bmeMonitor/web/static/index.gif
+END
 r_success.png
 K 25
 svn:wc:ra_dav:version-url
@@ -104,16 +158,4 @@ K 25
 svn:wc:ra_dav:version-url
 V 68
 /myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/success.gif
-END
-r_fail.png
-K 25
-svn:wc:ra_dav:version-url
-V 67
-/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/r_fail.png
-END
-fail.gif
-K 25
-svn:wc:ra_dav:version-url
-V 65
-/myspace/!svn/ver/209492/lbs/bmeqa/bmeMonitor/web/static/fail.gif
 END

@@ -1,5 +1,5 @@
-function dis_pagelist(items,itemsOnPage,currentPage) {
-	$('#query_id_test_page_list').pagination({
+function dis_pagelist_alarm(items,itemsOnPage,currentPage) {
+	$('#query_id_alarm_page_list').pagination({
 		items: items,
 		itemsOnPage: itemsOnPage,
 		cssStyle: 'light-theme',
@@ -7,28 +7,19 @@ function dis_pagelist(items,itemsOnPage,currentPage) {
 		onPageClick: pageselectCallback
 	});
 }
-function dis_pagelist_proto(items,itemsOnPage,currentPage) {
-	$('#query_id_test_page_list').pagination({
-		items: items,
-		itemsOnPage: itemsOnPage,
-		cssStyle: 'light-theme',
-		currentPage: currentPage,
-		onPageClick: pageselectCallback_proto
-	});
-}
-function query_testdata(page,datatype) {
+
+function query_alarm_data(page) {
 	var limit=5;
 	var offset=(page-1)*5;
-	var belong=document.getElementById("id_user_name").innerHTML;
 	var retdata;
 	$.ajax({
 		type: "post",//使用post方法访问后台
 		dataType: "json",//返回json格式的数据
-		url: "/pb/query_testdata/",//要访问的后台地址
+		url: "/serviceMonitor/queryAlarm/",//要访问的后台地址
 		contentType: "application/json; charset=utf-8",
 		cache: false,
 		async: false,
-		data: {limit:limit,offset:offset,belong:belong,datatype:datatype},//要发送的数据
+		data: {limit:limit,offset:offset},//要发送的数据
 		//start : function(){},
 		//complete :function(){$("#load").hide();},//AJAX请求完成时隐藏loading提示
 		success: function(data){//msg为返回的数据，在这里做数据绑定
@@ -37,76 +28,55 @@ function query_testdata(page,datatype) {
 	});
 	return retdata;
 }
-function dis_datalist(retdata,datatype) {
+
+function dis_alarm_list(retdata) {
 	datalist=retdata.ret_dict;
 	var len=datalist.length;
 	if (len == 0){
-		document.getElementById("id_datalist").innerHTML = "";
+		document.getElementById("id_alarm_list").innerHTML = "";
 		var t="";
-		if (datatype != -1) {
-			t+="<td>&nbsp;</td><td>&nbsp;</td>";
-			t+="<td style='text-align:center;font-size:16px;'>您还没添加测试数据，<br/><a href='/pb/conf/?conftype=adddata'><b>立即添加</b></a></td>";
-			t+="<td>&nbsp;</td>";
-		} else {
-			t+="<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>";
-			t+="<td style='text-align:center;font-size:16px;'>您还没添加测试数据，<br/><a href='/pb/conf/?conftype=adddata'><b>立即添加</b></a></td>";
-			t+="<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>";
-		}
-		$("#id_datalist").append(t);
+		t+="<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>";
+		t+="<td style='text-align:center;font-size:16px;'>恭喜您, 系统健康, 0告警 ! </b></a></td>";
+		t+="<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>";
+		$("#id_alarm_list").append(t);
 	} else {
-		if (datatype == -1) {
-			var t="";
-			$.each(datalist, function(i,n){
-				t+="<tr><td>";
-				t+=n.id;
-				t+="</td><td>";
-				t+=n.name;
-				t+="</td><td>";
-				t+=n.type;
-				t+="</td><td>";
-				t+=n.belong;
-				t+="</td><td>";
-				t+=n.filenum;
-				t+="</td><td>";
-				t+=n.descpt;
-				t+="</td><td class='i-operate'><a href='javascript:list_testdata("+n.id+");' title='查看'>查看</a><a href='javascript:del_testdata("+n.id+");' title='删除'>删除</a></td>";
-			});
-			document.getElementById("id_datalist").innerHTML = "";
-			$("#id_datalist").append(t);
-		} else{
-			var t="";
-			$.each(datalist, function(i,n){
-				t+="<tr><td  style='padding-top:2px;padding-bottom:2px;'>";
-				if (i == 0) {
-					t+="<input type='radio' name='testdata' checked='checked' value=";
-				} else {
-					t+="<input type='radio' name='testdata' value=";
-				}
-				t+=n.id;
-				t+=" />";
-				t+="</td><td>";
-				t+=n.id;
-				t+="</td><td>";
-				t+=n.name;
-				t+="</td><td>";
-				t+=n.descpt;
-				t+="</td></tr>";
-			});
-			document.getElementById("id_datalist").innerHTML = "";
-			$("#id_datalist").append(t);
-		}
+		var t="";
+		$.each(datalist, function(i,n){
+			t+="<tr><td>";
+			t+=n.id;
+			t+="</td><td>";
+			t+=n.monitorObj_id;
+			t+="</td><td>";
+			t+=n.monitorMetrics_id;
+			t+="</td><td>";
+			t+=n.description;
+			t+="</td><td>";
+			t+=n.status;
+			t+="</td><td>";
+			t+=n.datetime;
+			t+="</td><td>";
+			t+=n.cause;
+			t+="</td><td>";
+			t+=n.handleBy;
+			t+="</td><td>";
+			t+="<a href='#'>详情</a> <a href='#'>清除</a>";
+			t+="</td></tr>";
+		});
+		document.getElementById("id_alarm_list").innerHTML = "";
+		$("#id_alarm_list").append(t);
 	}
 }
-function pageselectCallback_proto (page, jq) {
-	var retdata=query_testdata(page,0);
-	dis_datalist(retdata,0);
-	dis_pagelist(retdata.data_totalcnt,5,page);
-}
+
 function pageselectCallback (page, jq) {
-	var retdata=query_testdata(page,-1);
-	dis_datalist(retdata,-1);
-	dis_pagelist(retdata.data_totalcnt,5,page);
+	var retdata=query_alarm_data(page);
+	dis_alarm_list(retdata);
+	dis_pagelist_alarm(retdata.alarm_totalcnt,5,page);
 }
+
+
+
+
+
 function del_testdata(id) {
 	$.ajax({
 		type: "post",//使用post方法访问后台

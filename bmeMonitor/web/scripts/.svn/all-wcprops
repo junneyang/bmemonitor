@@ -1,23 +1,203 @@
 K 25
 svn:wc:ra_dav:version-url
 V 57
-/myspace/!svn/ver/212828/lbs/bmeqa/bmeMonitor/web/scripts
+/myspace/!svn/ver/234919/lbs/bmeqa/bmeMonitor/web/scripts
 END
-1-2-3-1.accountRest.py
+SEOTEST.py
 K 25
 svn:wc:ra_dav:version-url
-V 80
-/myspace/!svn/ver/212828/lbs/bmeqa/bmeMonitor/web/scripts/1-2-3-1.accountRest.py
+V 68
+/myspace/!svn/ver/233784/lbs/bmeqa/bmeMonitor/web/scripts/SEOTEST.py
 END
 Monitor.py
 K 25
 svn:wc:ra_dav:version-url
 V 68
-/myspace/!svn/ver/212828/lbs/bmeqa/bmeMonitor/web/scripts/Monitor.py
+/myspace/!svn/ver/233265/lbs/bmeqa/bmeMonitor/web/scripts/Monitor.py
+END
+get_wordclass_data.py
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/myspace/!svn/ver/220517/lbs/bmeqa/bmeMonitor/web/scripts/get_wordclass_data.py
+END
+1-16-17-20.NewIndexInterface.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/myspace/!svn/ver/234919/lbs/bmeqa/bmeMonitor/web/scripts/1-16-17-20.NewIndexInterface.py
+END
+1-9-10-12.zhixinDelay.py
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/myspace/!svn/ver/229828/lbs/bmeqa/bmeMonitor/web/scripts/1-9-10-12.zhixinDelay.py
+END
+1-2-3-1.accountBalance.py
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/myspace/!svn/ver/223672/lbs/bmeqa/bmeMonitor/web/scripts/1-2-3-1.accountBalance.py
+END
+1-5-7-9.cpsServerCoupons.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/myspace/!svn/ver/228348/lbs/bmeqa/bmeMonitor/web/scripts/1-5-7-9.cpsServerCoupons.py
+END
+aladingDelayThread.bak.py
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/myspace/!svn/ver/233442/lbs/bmeqa/bmeMonitor/web/scripts/aladingDelayThread.bak.py
+END
+aladingDelayThread.py
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/myspace/!svn/ver/234616/lbs/bmeqa/bmeMonitor/web/scripts/aladingDelayThread.py
+END
+1-5-8-11.cpsPushFail.py
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/myspace/!svn/ver/223313/lbs/bmeqa/bmeMonitor/web/scripts/1-5-8-11.cpsPushFail.py
+END
+1-5-6-7.clickServerUrl.py
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/myspace/!svn/ver/228348/lbs/bmeqa/bmeMonitor/web/scripts/1-5-6-7.clickServerUrl.py
+END
+accountinfo.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/myspace/!svn/ver/225480/lbs/bmeqa/bmeMonitor/web/scripts/accountinfo.py
+END
+1-2-3-2.accountClickRate.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/myspace/!svn/ver/227006/lbs/bmeqa/bmeMonitor/web/scripts/1-2-3-2.accountClickRate.py
+END
+zhixinDelayThread.bak.py
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/myspace/!svn/ver/224653/lbs/bmeqa/bmeMonitor/web/scripts/zhixinDelayThread.bak.py
+END
+1-2-3-3.accountUrl.py
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/myspace/!svn/ver/220557/lbs/bmeqa/bmeMonitor/web/scripts/1-2-3-3.accountUrl.py
+END
+zhixinDelayThread.py
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/myspace/!svn/ver/233562/lbs/bmeqa/bmeMonitor/web/scripts/zhixinDelayThread.py
+END
+TSMInterface.conf
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/myspace/!svn/ver/233952/lbs/bmeqa/bmeMonitor/web/scripts/TSMInterface.conf
+END
+TestConf.py
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/myspace/!svn/ver/220437/lbs/bmeqa/bmeMonitor/web/scripts/TestConf.py
+END
+1-2-4-6.wordclassCost.py
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/myspace/!svn/ver/227012/lbs/bmeqa/bmeMonitor/web/scripts/1-2-4-6.wordclassCost.py
 END
 __init__.py
 K 25
 svn:wc:ra_dav:version-url
 V 69
 /myspace/!svn/ver/212811/lbs/bmeqa/bmeMonitor/web/scripts/__init__.py
+END
+1-11-12-15.aladingDelay.py
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/myspace/!svn/ver/229828/lbs/bmeqa/bmeMonitor/web/scripts/1-11-12-15.aladingDelay.py
+END
+NewIndexInterface.conf
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/myspace/!svn/ver/234790/lbs/bmeqa/bmeMonitor/web/scripts/NewIndexInterface.conf
+END
+baidu-api.properties
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/myspace/!svn/ver/213586/lbs/bmeqa/bmeMonitor/web/scripts/baidu-api.properties
+END
+check_url.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/myspace/!svn/ver/220903/lbs/bmeqa/bmeMonitor/web/scripts/check_url.py
+END
+1-5-8-10.cpsPushSuccess.py
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/myspace/!svn/ver/228348/lbs/bmeqa/bmeMonitor/web/scripts/1-5-8-10.cpsPushSuccess.py
+END
+awktest.sh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/myspace/!svn/ver/225271/lbs/bmeqa/bmeMonitor/web/scripts/awktest.sh
+END
+1-2-4-5.wordclassClick.py
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/myspace/!svn/ver/227012/lbs/bmeqa/bmeMonitor/web/scripts/1-2-4-5.wordclassClick.py
+END
+1-2-4-4.wordclassImpression.py
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/myspace/!svn/ver/227012/lbs/bmeqa/bmeMonitor/web/scripts/1-2-4-4.wordclassImpression.py
+END
+deadtinyurl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/myspace/!svn/ver/219043/lbs/bmeqa/bmeMonitor/web/scripts/deadtinyurl.txt
+END
+1-11-13-18.NearTuangou.py
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/myspace/!svn/ver/233657/lbs/bmeqa/bmeMonitor/web/scripts/1-11-13-18.NearTuangou.py
+END
+1-5-6-8.clickServerCookie.py
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/myspace/!svn/ver/228348/lbs/bmeqa/bmeMonitor/web/scripts/1-5-6-8.clickServerCookie.py
+END
+1-14-15-19.TSMInterface.py
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/myspace/!svn/ver/234904/lbs/bmeqa/bmeMonitor/web/scripts/1-14-15-19.TSMInterface.py
+END
+zhixinDelay.conf
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/myspace/!svn/ver/233310/lbs/bmeqa/bmeMonitor/web/scripts/zhixinDelay.conf
 END

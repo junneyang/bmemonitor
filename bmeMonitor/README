@@ -15,5 +15,5 @@ bmeMonitor
 
 3.distributed task server
 3.1 cd gearserver/
-3.2 ./start.sh 8887
+3.2 ./start.sh 8877
 
