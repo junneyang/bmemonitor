@@ -1,7 +1,7 @@
 10
 
 dir
-236788
+239192
 https://svn.baidu.com/myspace/lbs/bmeqa/bmeMonitor/web/static/js/model/FlexSlider-1.8/__MACOSX/FlexSlider-1.8
 https://svn.baidu.com/myspace
 
@@ -25,40 +25,6 @@ chengyunlai
 
 
 c4ccc3fd-b13d-49bf-a705-f618d8f4424a
-
-._.DS_Store
-file
-
-
-
-
-2015-01-11T16:22:41.000000Z
-96c68b79bc82b883258762468d5a38a3
-2015-01-04T08:25:47.419905Z
-209492
-chengyunlai
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-82
 
 ._demo.html
 file
@@ -229,4 +195,38 @@ has-props
 
 
 188
+
+._.DS_Store
+file
+
+
+
+
+2015-01-11T16:22:41.000000Z
+96c68b79bc82b883258762468d5a38a3
+2015-01-04T08:25:47.419905Z
+209492
+chengyunlai
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+82
 

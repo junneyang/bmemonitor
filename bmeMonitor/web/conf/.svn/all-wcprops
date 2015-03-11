@@ -1,7 +1,13 @@
 K 25
 svn:wc:ra_dav:version-url
 V 54
-/myspace/!svn/ver/234931/lbs/bmeqa/bmeMonitor/web/conf
+/myspace/!svn/ver/237268/lbs/bmeqa/bmeMonitor/web/conf
+END
+monitor.conf
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/myspace/!svn/ver/234753/lbs/bmeqa/bmeMonitor/web/conf/monitor.conf
 END
 taskRunner.conf
 K 25
@@ -19,17 +25,11 @@ onetime_task.conf
 K 25
 svn:wc:ra_dav:version-url
 V 72
-/myspace/!svn/ver/234931/lbs/bmeqa/bmeMonitor/web/conf/onetime_task.conf
+/myspace/!svn/ver/237268/lbs/bmeqa/bmeMonitor/web/conf/onetime_task.conf
 END
 period_task.conf
 K 25
 svn:wc:ra_dav:version-url
 V 71
-/myspace/!svn/ver/234931/lbs/bmeqa/bmeMonitor/web/conf/period_task.conf
-END
-monitor.conf
-K 25
-svn:wc:ra_dav:version-url
-V 67
-/myspace/!svn/ver/234753/lbs/bmeqa/bmeMonitor/web/conf/monitor.conf
+/myspace/!svn/ver/237221/lbs/bmeqa/bmeMonitor/web/conf/period_task.conf
 END

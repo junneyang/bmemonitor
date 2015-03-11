@@ -1,7 +1,7 @@
 10
 
 dir
-236788
+239192
 https://svn.baidu.com/myspace/lbs/bmeqa/bmeMonitor/web/static/js/model/jquery-validation-1.13.1/test
 https://svn.baidu.com/myspace
 
@@ -25,6 +25,43 @@ yangjun03
 
 
 c4ccc3fd-b13d-49bf-a705-f618d8f4424a
+
+qunit
+dir
+
+messages.js
+file
+
+
+
+
+2015-03-06T09:31:17.000000Z
+55d2e1291057418a765fb109f018d380
+2015-01-20T12:02:11.008367Z
+217453
+yangjun03
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2162
 
 rules.js
 file
@@ -229,41 +266,4 @@ yangjun03
 
 
 53445
-
-qunit
-dir
-
-messages.js
-file
-
-
-
-
-2015-03-06T09:31:17.000000Z
-55d2e1291057418a765fb109f018d380
-2015-01-20T12:02:11.008367Z
-217453
-yangjun03
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2162
 

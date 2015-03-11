@@ -1,7 +1,7 @@
 10
 
 dir
-236788
+239192
 https://svn.baidu.com/myspace/lbs/bmeqa/bmeMonitor/web/static/js/model
 https://svn.baidu.com/myspace
 
@@ -25,48 +25,6 @@ chengyunlai
 
 
 c4ccc3fd-b13d-49bf-a705-f618d8f4424a
-
-uploadify
-dir
-
-DataTables-1.10.4-trial
-dir
-
-bootstrap-datetimepicker-master
-dir
-
-bootstrap-treeview-master
-dir
-
-cycle
-dir
-
-dialog
-dir
-
-SmartWizard-master
-dir
-
-WdatePicker
-dir
-
-dtree
-dir
-
-FlexSlider-1.8
-dir
-
-Chart.js-master
-dir
-
-d3
-dir
-
-flaviusmatis-simplePagination.js-9d0304d
-dir
-
-mmGrid-master
-dir
 
 bxslider
 dir
@@ -105,5 +63,47 @@ moment-develop
 dir
 
 bootstrap-table-master
+dir
+
+DataTables-1.10.4-trial
+dir
+
+uploadify
+dir
+
+bootstrap-treeview-master
+dir
+
+bootstrap-datetimepicker-master
+dir
+
+dialog
+dir
+
+cycle
+dir
+
+SmartWizard-master
+dir
+
+WdatePicker
+dir
+
+dtree
+dir
+
+Chart.js-master
+dir
+
+FlexSlider-1.8
+dir
+
+d3
+dir
+
+mmGrid-master
+dir
+
+flaviusmatis-simplePagination.js-9d0304d
 dir
 

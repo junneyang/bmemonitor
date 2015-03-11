@@ -1,7 +1,7 @@
 10
 
 dir
-236788
+239192
 https://svn.baidu.com/myspace/lbs/bmeqa/bmeMonitor/web/static/js/model/highstock/examples
 https://svn.baidu.com/myspace
 
@@ -26,49 +26,10 @@ chengyunlai
 
 c4ccc3fd-b13d-49bf-a705-f618d8f4424a
 
-navigator-disabled
-dir
-
-areasplinerange
-dir
-
-step-line
-dir
-
-data-grouping
-dir
-
-flags-placement
-dir
-
-yaxis-plotlines
-dir
-
-dynamic-update
-dir
-
-basic-line
-dir
-
-flags-general
-dir
-
-area
-dir
-
-yaxis-reversed
-dir
-
-columnrange
-dir
-
-flags-shapes
+yaxis-plotbands
 dir
 
 intraday-area
-dir
-
-yaxis-plotbands
 dir
 
 markers-only
@@ -111,5 +72,44 @@ column
 dir
 
 intraday-candlestick
+dir
+
+navigator-disabled
+dir
+
+step-line
+dir
+
+areasplinerange
+dir
+
+data-grouping
+dir
+
+flags-placement
+dir
+
+dynamic-update
+dir
+
+yaxis-plotlines
+dir
+
+basic-line
+dir
+
+flags-general
+dir
+
+area
+dir
+
+columnrange
+dir
+
+yaxis-reversed
+dir
+
+flags-shapes
 dir
 

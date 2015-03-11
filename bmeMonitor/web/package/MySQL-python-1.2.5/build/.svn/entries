@@ -1,7 +1,7 @@
 10
 
 dir
-236788
+239192
 https://svn.baidu.com/myspace/lbs/bmeqa/bmeMonitor/web/package/MySQL-python-1.2.5/build
 https://svn.baidu.com/myspace
 
@@ -26,12 +26,12 @@ chengyunlai
 
 c4ccc3fd-b13d-49bf-a705-f618d8f4424a
 
-bdist.linux-x86_64
-dir
-
 temp.linux-x86_64-2.7
 dir
 
 lib.linux-x86_64-2.7
+dir
+
+bdist.linux-x86_64
 dir
 

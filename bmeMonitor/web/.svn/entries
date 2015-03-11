@@ -1,15 +1,15 @@
 10
 
 dir
-236788
+239192
 https://svn.baidu.com/myspace/lbs/bmeqa/bmeMonitor/web
 https://svn.baidu.com/myspace
 
 
 
-2015-03-05T04:13:54.883957Z
-235711
-yangjun03
+2015-03-09T15:13:26.366433Z
+237874
+chengyunlai
 
 
 
@@ -25,6 +25,132 @@ yangjun03
 
 
 c4ccc3fd-b13d-49bf-a705-f618d8f4424a
+
+com
+dir
+
+log
+dir
+
+start_taskRunner.sh
+file
+
+
+
+
+2015-03-11T09:44:55.000000Z
+fe4a34a03a7930532c118fde3c21a160
+2015-03-09T03:16:38.248673Z
+237296
+yangjun03
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+82
+
+taskRunner.py
+file
+
+
+
+
+2015-01-11T16:22:46.000000Z
+210168f0cba0a2d8bddba1043264a669
+2015-01-10T15:58:38.184261Z
+212694
+yangjun03
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8296
+
+conf
+dir
+
+scripts
+dir
+
+static
+dir
+
+stop_bmeMonitor.sh
+file
+
+
+
+
+2015-03-06T09:31:21.000000Z
+6e29fa012ed0ce356a383f1902127d0d
+2015-01-13T08:07:54.467376Z
+213704
+yangjun03
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+99
+
+plan
+dir
+
+package
+dir
+
+example
+dir
 
 bak
 dir
@@ -72,10 +198,10 @@ file
 
 
 
-2015-03-06T09:31:21.000000Z
-3bf62e8a89a97ea2fa1fbf692d584c8d
-2015-03-05T03:02:38.325909Z
-235629
+2015-03-11T09:44:55.000000Z
+afbae810ea407c60b203045e000114a8
+2015-03-09T03:11:14.914143Z
+237292
 yangjun03
 
 
@@ -98,7 +224,7 @@ yangjun03
 
 
 
-77032
+77063
 
 stop_taskRunner.sh
 file
@@ -135,97 +261,5 @@ has-props
 99
 
 template
-dir
-
-com
-dir
-
-log
-dir
-
-taskRunner.py
-file
-
-
-
-
-2015-01-11T16:22:46.000000Z
-210168f0cba0a2d8bddba1043264a669
-2015-01-10T15:58:38.184261Z
-212694
-yangjun03
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-8296
-
-conf
-dir
-
-static
-dir
-
-scripts
-dir
-
-stop_bmeMonitor.sh
-file
-
-
-
-
-2015-03-06T09:31:21.000000Z
-6e29fa012ed0ce356a383f1902127d0d
-2015-01-13T08:07:54.467376Z
-213704
-yangjun03
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-99
-
-plan
-dir
-
-package
-dir
-
-example
 dir
 

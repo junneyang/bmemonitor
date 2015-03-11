@@ -599,7 +599,7 @@ class mysqlLib():
     #--------------------------------------------------------------------------------------------------------
     def query_account_name_list(self,param):
         try:
-            sql = "select info from tbl_monitordata where info like '%balance%' limit 1"
+            sql = "select info from tbl_monitordata where info like '%balance%' order by id desc limit 1"
             cnt=self.cursor.execute(sql)
             ret=self.cursor.fetchall()
             return ret

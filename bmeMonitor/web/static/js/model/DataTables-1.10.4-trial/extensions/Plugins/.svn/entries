@@ -1,7 +1,7 @@
 10
 
 dir
-236788
+239192
 https://svn.baidu.com/myspace/lbs/bmeqa/bmeMonitor/web/static/js/model/DataTables-1.10.4-trial/extensions/Plugins
 https://svn.baidu.com/myspace
 
@@ -25,6 +25,18 @@ yangjun03
 
 
 c4ccc3fd-b13d-49bf-a705-f618d8f4424a
+
+i18n
+dir
+
+filtering
+dir
+
+integration
+dir
+
+sorting
+dir
 
 api
 dir
@@ -70,17 +82,5 @@ type-detection
 dir
 
 features
-dir
-
-i18n
-dir
-
-filtering
-dir
-
-integration
-dir
-
-sorting
 dir
 

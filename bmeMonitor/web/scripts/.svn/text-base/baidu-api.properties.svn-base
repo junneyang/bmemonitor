@@ -1,8 +1,0 @@
-[api]
-serverUrl=https://api.baidu.com
-username=your username
-password=your password
-token=your token
-target
-accessToken
-action=API-SDK-PYTHON

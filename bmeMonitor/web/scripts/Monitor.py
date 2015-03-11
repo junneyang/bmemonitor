@@ -28,9 +28,16 @@ class Monitor(object):
             self.from_mail_addr  = self.task_runner_conf['from_mail_addr']
             self.to_mail_addr  = self.task_runner_conf['to_mail_addr']
             self.phone_list  = self.task_runner_conf['phone_list']
+            self._debugmode = False
             logging.info("Monitor init success")
         except Exception as e:
             logging.error(str(e))
+
+
+    # modfy debugmode
+    def setDebug(self, debugMode):
+        self._debugmode = debugMode
+
     #短信通知
     def msgSend(self, phone_list, content , mode="qapi"):
         msgSend(phone_list, content , mode="qapi")

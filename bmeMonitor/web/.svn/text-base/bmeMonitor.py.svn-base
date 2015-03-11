@@ -462,6 +462,7 @@ class queryAccountBalance(authenticateBase):
         for item in serverlist_info:
             param = (item)
             ret = mysql.query_tbl_monitordata_account_info(param)
+            logging.info(ret)
             ret = json.loads(ret[0][0])
             for item_item in ret:
                 if(item_item['accountName'] == account):

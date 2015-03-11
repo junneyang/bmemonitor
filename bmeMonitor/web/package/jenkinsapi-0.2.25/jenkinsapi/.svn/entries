@@ -1,7 +1,7 @@
 10
 
 dir
-236788
+239192
 https://svn.baidu.com/myspace/lbs/bmeqa/bmeMonitor/web/package/jenkinsapi-0.2.25/jenkinsapi
 https://svn.baidu.com/myspace
 
@@ -25,74 +25,6 @@ chengyunlai
 
 
 c4ccc3fd-b13d-49bf-a705-f618d8f4424a
-
-__init__.py
-file
-
-
-
-
-2015-01-11T16:22:46.000000Z
-7624e80afd8b268c6799e6ab42876dbb
-2015-01-04T08:25:47.419905Z
-209492
-chengyunlai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2160
-
-build.py
-file
-
-
-
-
-2015-01-11T16:22:46.000000Z
-d0708cc2fc155f572cc6495c36b03b44
-2015-01-04T08:25:47.419905Z
-209492
-chengyunlai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-13413
 
 jenkins.py
 file
@@ -230,39 +162,8 @@ chengyunlai
 
 1672
 
-invocation.py
-file
-
-
-
-
-2015-01-11T16:22:46.000000Z
-7f4eeb25aba3fa5c41534b0dffd71cec
-2015-01-04T08:25:47.419905Z
-209492
-chengyunlai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3954
+utils
+dir
 
 api.py
 file
@@ -298,17 +199,14 @@ chengyunlai
 
 8247
 
-utils
-dir
-
-job.py
+invocation.py
 file
 
 
 
 
 2015-01-11T16:22:46.000000Z
-ea557af148d2b70e3020f459f18bab4e
+7f4eeb25aba3fa5c41534b0dffd71cec
 2015-01-04T08:25:47.419905Z
 209492
 chengyunlai
@@ -333,7 +231,7 @@ chengyunlai
 
 
 
-23377
+3954
 
 view.py
 file
@@ -368,6 +266,40 @@ chengyunlai
 
 
 5863
+
+job.py
+file
+
+
+
+
+2015-01-11T16:22:46.000000Z
+ea557af148d2b70e3020f459f18bab4e
+2015-01-04T08:25:47.419905Z
+209492
+chengyunlai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+23377
 
 custom_exceptions.py
 file
@@ -881,4 +813,72 @@ chengyunlai
 
 command_line
 dir
+
+build.py
+file
+
+
+
+
+2015-01-11T16:22:46.000000Z
+d0708cc2fc155f572cc6495c36b03b44
+2015-01-04T08:25:47.419905Z
+209492
+chengyunlai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+13413
+
+__init__.py
+file
+
+
+
+
+2015-01-11T16:22:46.000000Z
+7624e80afd8b268c6799e6ab42876dbb
+2015-01-04T08:25:47.419905Z
+209492
+chengyunlai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2160
 

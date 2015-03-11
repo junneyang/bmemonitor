@@ -1,7 +1,7 @@
 10
 
 dir
-236788
+239192
 https://svn.baidu.com/myspace/lbs/bmeqa/bmeMonitor/web/dispatch/gearserver
 https://svn.baidu.com/myspace
 
@@ -25,6 +25,9 @@ yangjun03
 
 
 c4ccc3fd-b13d-49bf-a705-f618d8f4424a
+
+log
+dir
 
 start.sh
 file
@@ -93,7 +96,4 @@ has-props
 
 
 423920
-
-log
-dir
 

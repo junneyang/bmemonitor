@@ -1,161 +1,167 @@
 K 25
 svn:wc:ra_dav:version-url
 V 64
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi
-END
-sms_v3_CompetitionService.py
-K 25
-svn:wc:ra_dav:version-url
-V 93
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_CompetitionService.py
-END
-sms_v3_RankService.py
-K 25
-svn:wc:ra_dav:version-url
-V 86
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_RankService.py
-END
-sms_v3_AccountService.py
-K 25
-svn:wc:ra_dav:version-url
-V 89
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_AccountService.py
-END
-AuthHeader.py
-K 25
-svn:wc:ra_dav:version-url
-V 78
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/AuthHeader.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi
 END
 sms_v3_AdgroupService.py
 K 25
 svn:wc:ra_dav:version-url
 V 89
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_AdgroupService.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_AdgroupService.py
 END
 sms_v3_CreativeService.py
 K 25
 svn:wc:ra_dav:version-url
 V 90
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_CreativeService.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_CreativeService.py
 END
 PreviewUtil.py
 K 25
 svn:wc:ra_dav:version-url
 V 79
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/PreviewUtil.py
-END
-sms_v3_SearchService.py
-K 25
-svn:wc:ra_dav:version-url
-V 88
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_SearchService.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/PreviewUtil.py
 END
 sms_v3_InsightService.py
 K 25
 svn:wc:ra_dav:version-url
 V 89
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_InsightService.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_InsightService.py
+END
+sms_v3_SearchService.py
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_SearchService.py
 END
 KeywordServiceExample.py
 K 25
 svn:wc:ra_dav:version-url
 V 89
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/KeywordServiceExample.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/KeywordServiceExample.py
 END
 sms_v3_DynamicCreativeService.py
 K 25
 svn:wc:ra_dav:version-url
 V 97
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_DynamicCreativeService.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_DynamicCreativeService.py
 END
 Python_Readme.txt
 K 25
 svn:wc:ra_dav:version-url
 V 82
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/Python_Readme.txt
-END
-sms_v3_FolderService.py
-K 25
-svn:wc:ra_dav:version-url
-V 88
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_FolderService.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/Python_Readme.txt
 END
 sms_v3_ReportService.py
 K 25
 svn:wc:ra_dav:version-url
 V 88
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_ReportService.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_ReportService.py
+END
+sms_v3_FolderService.py
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_FolderService.py
 END
 sms_v3_NewCreativeService.py
 K 25
 svn:wc:ra_dav:version-url
 V 93
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_NewCreativeService.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_NewCreativeService.py
 END
 sms_v3_KRService.py
 K 25
 svn:wc:ra_dav:version-url
 V 84
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_KRService.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_KRService.py
 END
 RankServiceExample.py
 K 25
 svn:wc:ra_dav:version-url
 V 86
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/RankServiceExample.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/RankServiceExample.py
 END
 AccountServiceExample.py
 K 25
 svn:wc:ra_dav:version-url
 V 89
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/AccountServiceExample.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/AccountServiceExample.py
 END
 sms_v3_CampaignService.py
 K 25
 svn:wc:ra_dav:version-url
 V 90
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_CampaignService.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_CampaignService.py
 END
 ApiSDKSoapClient.py
 K 25
 svn:wc:ra_dav:version-url
 V 84
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/ApiSDKSoapClient.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/ApiSDKSoapClient.py
 END
 baidu-api.properties
 K 25
 svn:wc:ra_dav:version-url
 V 85
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/baidu-api.properties
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/baidu-api.properties
 END
 sms_v3_KeywordService.py
 K 25
 svn:wc:ra_dav:version-url
 V 89
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_KeywordService.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_KeywordService.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/myspace/!svn/ver/237089/lbs/bmeqa/bmeMonitor/web/scripts/semapi/__init__.py
 END
 JsonEnvelop.py
 K 25
 svn:wc:ra_dav:version-url
 V 79
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/JsonEnvelop.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/JsonEnvelop.py
 END
 sms_v3_IPMaterialService.py
 K 25
 svn:wc:ra_dav:version-url
 V 92
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_IPMaterialService.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_IPMaterialService.py
 END
 sms_v3_BulkJobService.py
 K 25
 svn:wc:ra_dav:version-url
 V 89
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_BulkJobService.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_BulkJobService.py
 END
 ApiSDKJsonClient.py
 K 25
 svn:wc:ra_dav:version-url
 V 84
-/myspace/!svn/ver/230420/lbs/bmeqa/bmeMonitor/web/scripts/semapi/ApiSDKJsonClient.py
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/ApiSDKJsonClient.py
+END
+sms_v3_CompetitionService.py
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_CompetitionService.py
+END
+sms_v3_RankService.py
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_RankService.py
+END
+sms_v3_AccountService.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/sms_v3_AccountService.py
+END
+AuthHeader.py
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/myspace/!svn/ver/237217/lbs/bmeqa/bmeMonitor/web/scripts/semapi/AuthHeader.py
 END

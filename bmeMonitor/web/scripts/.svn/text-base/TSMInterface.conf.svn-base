@@ -6,8 +6,8 @@
 		"url":"/tsmdata/brand/districts?brandId=8&cityId=100010000",
 		"method":"GET",
 		"params":"",
-		"expect":{"msg": "2805628425|0|", "errno": 0, "data": [{"districtName": "西城区", "districtId": "396"}, {"districtName": "昌平区", "districtId": "406"}]},
-		"compare":1,
+		"expect":"",
+		"compare":0,
 		"flag":1
 	},
 	{

@@ -1,7 +1,7 @@
 10
 
 dir
-236788
+239192
 https://svn.baidu.com/myspace/lbs/bmeqa/bmeMonitor/web/package/jenkinsapi-0.2.25
 https://svn.baidu.com/myspace
 
@@ -25,49 +25,6 @@ chengyunlai
 
 
 c4ccc3fd-b13d-49bf-a705-f618d8f4424a
-
-jenkinsapi-0.2.25
-dir
-
-jenkinsapi_tests
-dir
-
-setup.cfg
-file
-
-
-
-
-2015-01-11T16:22:46.000000Z
-96adaa329f3ea2262264331d06fbb4cf
-2015-01-04T08:25:47.419905Z
-209492
-chengyunlai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-258
-
-build
-dir
 
 dist
 dir
@@ -178,5 +135,48 @@ chengyunlai
 7769
 
 jenkinsapi
+dir
+
+jenkinsapi-0.2.25
+dir
+
+jenkinsapi_tests
+dir
+
+setup.cfg
+file
+
+
+
+
+2015-01-11T16:22:46.000000Z
+96adaa329f3ea2262264331d06fbb4cf
+2015-01-04T08:25:47.419905Z
+209492
+chengyunlai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+258
+
+build
 dir
 
