@@ -5,10 +5,10 @@ import datetime
 import sys
 
 import MySQLdb
-host='10.94.54.51'
-user='bmeqa'
-passwd='bmeqa123'
-db='db_bmemonitor'
+host='xXX'
+user='XXX'
+passwd='XXX'
+db='XXX'
 port=8456
 
 from dynsqlLib import *

@@ -46,9 +46,9 @@ class mailLib():
 if __name__ == '__main__':
     subject = u"【BME任务配置告警】任务配置ERROR"
     content = u"任务配置ERROR，请检查"
-    from_mail_addr = u"yangjun03@baidu.com"
-    to_mail_addr = u"yangjun03@baidu.com"
-    mail_server = u"mail2-in.baidu.com"
+    from_mail_addr = u"XXX@baidu.com"
+    to_mail_addr = u"XXX@baidu.com"
+    mail_server = u"XXX"
 
     maillib = mailLib()
     maillib.simple_text_mail_send(subject, content, from_mail_addr, to_mail_addr, mail_server)
